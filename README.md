@@ -82,6 +82,83 @@ The site will have the following pages:
 ## Frameworks & Languages
 
 ## Data Model
+In this project, my application will utilise a PostgreSQL data base provided by the Code Instutute. I have created the following tables and provided a graphical representation of how they are connected. 
+
+### Table 1: Users
+The Users table will contain user information be created through Django authentication. 
+
+|Data Type|Field|Key|
+|:------|:-----------|:------|
+|Int|id|Parent Key|
+|String|username||
+|String|email||
+|String|password||
+
+### Table 2: Companies
+The Companies table will contain information related to the company that can be viewed by the applicants.
+
+|Data Type|Field|Key|
+|:------|:-----------|:------|
+|Int|id|Parent Key|
+|Int|user_id|Foreign Key|
+|String|company_name||
+|String|description||
+|String|website||
+|Image|logo||
+|String|sectors||
+|Date Time|created_on||
+
+### Table 3: Jobs
+The Jobs table will contain information related to each job a company has posted that can be viewed by the applicants.
+
+|Data Type|Field|Key|
+|:------|:-----------|:------|
+|Int|id|Primary Key|
+|Int|company_id|Foreign Key|
+|String|title||
+|String|description||
+|String|requirements||
+|String|location||
+|Integer|salary_min||
+|Integer|salary_max||
+|Choice|job_type||
+|Boolean|is_active||
+|Date Time|created_on||
+|Date Time|updated_on||
+
+### Table 4: Candidates
+The Candidates table will contain information related to each candidate that would apply to the job application.
+
+|Data Type|Field|Key|
+|:------|:-----------|:------|
+|Int|id|Primary Key|
+|Int|user_id|Foreign Key|
+|String|first_name||
+|String|last_name||
+|String|personal_statement||
+|String|skills||
+|String|experience||
+|Date Time|created_on||
+|Date Time|updated_on||
+
+### Table 5: Applications
+The Applications table will contain information for which candidate has applied to which opportunity. 
+
+|Data Type|Field|Key|
+|:------|:-----------|:------|
+|Int|id|Primary Key|
+|Int|job_id|Foreign Key|
+|Int|candidate_id|Foreign Key|
+|String|cover_note||
+|Choice|uk_working_status||
+|Choice|application_status||
+|Date Time|applied_on||
+|Date Time|updated_on||
+
+### Relationships
+create and add the image plus a relationships table
+
+
 
 ## Features 
 
