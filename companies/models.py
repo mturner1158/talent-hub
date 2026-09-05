@@ -8,12 +8,13 @@ class Companies(models.Model):
     """
     company_name = models.CharField(max_length=200, unique=True)
     description = models.TextField()
-    website = models.CharField()
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name="company_contact")
+    website = models.URLField(blank=True)
     sectors = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
 
-    def __string__(self):
+    def __str__(self):
         return f"{self.company_name} profile"
 
     class Meta:
