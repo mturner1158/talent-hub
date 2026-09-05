@@ -15,7 +15,7 @@ class Candidate(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     
-    def __string__(self):
+    def __str__(self):
         return f"{self.first_name} {self.last_name} candidate profile"
     
     class Meta:
