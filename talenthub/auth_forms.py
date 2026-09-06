@@ -31,7 +31,7 @@ class RoleSignupForm(forms.Form):
                 account=user,
                 first_name=user.username,
                 last_name='',
-                personal_statment='',
+                personal_statement='',
                 skills='',
                 experience=''
             )
