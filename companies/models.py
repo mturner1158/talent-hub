@@ -9,6 +9,7 @@ class Companies(models.Model):
     company_name = models.CharField(max_length=200, unique=True)
     description = models.TextField()
     owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name="company_contact")
+    slug = models.CharField(max_length=200, unique=True)
     website = models.URLField(blank=True)
     sectors = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
