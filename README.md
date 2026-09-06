@@ -188,6 +188,8 @@ The following bugs occured during the design of this site:
 |ID|Bug|Fix   |
 |:-----|:-------|:-------------|
 
+* auth additional question was not working and adding data to the database. Needed to update logic and fix a typo in the model
+
 ## Deployment 
 
 ## Code from External Sources 
