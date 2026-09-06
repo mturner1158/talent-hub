@@ -123,6 +123,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
+ACCOUNT_SIGNUP_FORM_CLASS = 'talenthub.auth_forms.RoleSignupForm'
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/6.1/topics/i18n/
