@@ -3,15 +3,31 @@
 {% block content %}
 
 
+<!-- Blog Entries Column -->
+<div class="col-12 mt-3 left">
+    <div class="row">
+        {% for job in job_list %}
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <a href="#" class="post-link">
+                        <h2 class="card-title">{{ job.title }}</h2>
+                    </a>
+                    <p class="card-text">{{ job.company }}</p>
+                    <hr />
+                    <p class="card-text">{{ job.location }}</p>
+                    <hr />
+                </div>
+            </div>
+        </div>
+        {% if forloop.counter|divisibleby:3 %}
+    </div>
+    <div class="row">
+        {% endif %}
+        {% endfor %}
 
-<div class="container-fluid">
-    <h1>Available JObs</h1>
-    {% for job in object_list %}
-    <h2>{{job.title}}</h2>
-    <p>{{job.commpany}}</p>
-    <p>Company: {{job.company}}</p>
-    {% endfor %}
+    </div>
 </div>
-
+</div>
 
 {% endblock %}

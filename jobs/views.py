@@ -6,5 +6,5 @@ from .models import Job
 class JobList(generic.ListView):
     queryset = Job.objects.all()
     template_name = "job_list.html"
-    paginate_by = 4
+    # paginate_by = 4
 
