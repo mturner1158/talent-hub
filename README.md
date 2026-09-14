@@ -76,8 +76,32 @@ The site will have the following pages:
 5. A log in and account registration page to allow users to sign up in either role
 
 ### Wireframes
+This section shows the wireframes for each page created in this web application across mobile, tablet and desktop screens. 
 
-#### One per page TBC
+#### Home Page 
+This page shows all job listings and is accessible without a log in. 
+
+<img src="wireframes/home.png">
+
+#### Job Listing 
+This page shows all the details of a selected job and is accessible without a log in. 
+
+<img src="wireframes/job-listings.png">
+
+To select apply you will be prompted to log in if not already. When logged in, a model will auto-populate with candidate information from their profile and additional questions to fill out set by the company. 
+
+#### Company Dashboard
+This page shows all job listings for a company and applicants which have applied. 
+
+<img src="wireframes/company-page.png">
+
+#### Applications for a specific role 
+This page shows applicants for a specific role. 
+
+#### Candidate Dashboard 
+This page shows all the roles a candidate has applied for, the status and the option to withdraw. 
+
+<img src="wireframes/candidate-page.png">
 
 ## Frameworks & Languages
 
