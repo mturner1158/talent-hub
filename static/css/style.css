@@ -11,7 +11,7 @@
     --primary-accent-colour: #009098; /* teal */
     --secondary-accent-colouor: #99D3D6; /* Pastel Teal */
     --selection-colour: #FFD5D5; /* pastel Talent Hub Red */
-    --primary-background-colour: ##FAF9F6; /* Off White*/ 
+    --primary-background-colour: #FAF9F6; /* Off White*/ 
     --primary-text-colour: #3D3D3C; /* Charcol */
     --border-colour: #8D8D8B; /* Grey */
 }
@@ -22,8 +22,50 @@ main {
     background-color: var(--primary-background-colour);
     font-family: var(--primary-font);
     color: var(--primary-text-colour);
+    padding: 30px;
+    background-size: cover;
+    width: 100%;
+    min-height: 97vh;
+    position: relative;
 }
 
 h1 {
     font-family: var(--secondary-font);
+}
+
+
+/* nav styles */
+
+nav {
+    background-color: var(--primary-text-colour);
+}
+
+#navbar .nav-btn .nav-link {
+    font-family: var(--secondary-font);
+    color: var(--primary-background-colour);
+}
+
+
+/* job cards on home page */
+
+.custom-card {
+    border: 1px solid var(--secondary-colour);
+    border-radius: 7px;
+    padding: 10px;
+}
+
+.company-name-card {
+    font-style: italic;
+}
+
+/* footer styles */
+
+#footer {
+    background-color: var(--primary-text-colour);
+    padding-top: 5px;
+}
+
+#socials a {
+    font-size: large;
+    color: var(--primary-background-colour);
 }
