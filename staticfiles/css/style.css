@@ -19,14 +19,9 @@
 /* global styles */
 
 main {
-    background-color: var(--primary-background-colour);
+    background-color: var(--primary-colour);
     font-family: var(--primary-font);
     color: var(--primary-text-colour);
-    padding: 30px;
-    background-size: cover;
-    width: 100%;
-    min-height: 97vh;
-    position: relative;
 }
 
 h1 {
@@ -40,32 +35,9 @@ nav {
     background-color: var(--primary-text-colour);
 }
 
-#navbar .nav-btn .nav-link {
-    font-family: var(--secondary-font);
-    color: var(--primary-background-colour);
-}
-
-
-/* job cards on home page */
-
-.custom-card {
-    border: 1px solid var(--secondary-colour);
-    border-radius: 7px;
-    padding: 10px;
-}
-
-.company-name-card {
-    font-style: italic;
-}
 
 /* footer styles */
 
 #footer {
     background-color: var(--primary-text-colour);
-    padding-top: 5px;
-}
-
-#socials a {
-    font-size: large;
-    color: var(--primary-background-colour);
 }
