@@ -213,6 +213,7 @@ The following bugs occured during the design of this site:
 |:-----|:-------|:-------------|
 
 * auth additional question was not working and adding data to the database. Needed to update logic and fix a typo in the model
+* back button pathing from job page erroring. All urls needed distinct names
 
 ## Deployment 
 
