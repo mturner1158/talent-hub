@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load humanize %}
+
 {% block content %}
 
 <div class="container">
@@ -24,7 +26,7 @@
             {{ job.get_job_type_display }}
         </div>
         <div class="col-3">
-            £{{ job.salary_min }} - £{{ job.salary_max }}
+            £{{ job.salary_min|intcomma }} - £{{ job.salary_max|intcomma }}
         </div>
     </div>
 </div>

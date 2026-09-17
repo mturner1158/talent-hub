@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load humanize %}
 
 {% block content %}
 
@@ -18,7 +19,7 @@
                             <p class="job-location-card">{{ job.location }}</p>
                         </div>
                         <div class="col-5">
-                            <p class="job-salary-card">Up to: £{{ job.salary_max }}</p>
+                            <p class="job-salary-card">Up to: £{{ job.salary_max|intcomma }}</p>
                         </div>
                         <div class="col-2">
                             <p><a href="{% url 'job_detail' job.slug %}" class="post-link"><i class="fa-solid fa-angles-right"></i></a></p>
