@@ -21,7 +21,7 @@
                             <p class="job-salary-card">Up to: £{{ job.salary_max }}</p>
                         </div>
                         <div class="col-2">
-                            <p><a href="#" class="post-link"><i class="fa-solid fa-angles-right"></i></a></p>
+                            <p><a href="{% url 'job_detail' job.slug %}" class="post-link"><i class="fa-solid fa-angles-right"></i></a></p>
                         </div>
                     </div>
                 </div>
