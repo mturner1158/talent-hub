@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-2">
+            <a href="{% url 'home' %}"><i class="fa-solid fa-angles-left"></i></a>
+        </div>
+        <div class="col-10">
+            <h1>{{ job.title }}</h1>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row key-job-details">
+        <div class="col-3">
+            {{ job.company.company_name }}
+        </div>
+        <div class="col-3">
+            {{ job.location }}
+        </div>
+        <div class="col-3">
+            {{ job.get_job_type_display }}
+        </div>
+        <div class="col-3">
+            £{{ job.salary_min }} - £{{ job.salary_max }}
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div>
+        {{ job.description|safe}}
+    </div>
+    <div>
+        <button>Apply</button>
+    </div>
+    <div>
+        <div>
+            <h3>About {{ job.company.company_name }}</h3>
+            <p>{{ job.company.description|safe }}</p>
+            {% if job.company.website %}
+            <p><a href="{{ job.company.website }}" target="_blank">{{ job.company.website }}</a></p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
