@@ -19,7 +19,6 @@ class Job(models.Model):
     slug = models.SlugField(max_length=200, unique=True, blank=True)
     description = models.TextField()
     location = models.CharField(max_length=200)
-    salary_min = models.PositiveIntegerField
     salary_min = models.PositiveIntegerField(blank=True, null=True)
     salary_max = models.PositiveIntegerField(blank=True, null=True)
     job_type = models.CharField(max_length=20, choices=JOB_TYPE_CHOICES)
