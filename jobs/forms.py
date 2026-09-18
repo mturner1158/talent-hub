@@ -9,3 +9,11 @@ class JobForm(forms.ModelForm):
         widgets = {
             'description': SummernoteWidget(),
         }
+
+class JobEditForm(forms.ModelForm):
+    class Meta:
+        model = Job
+        fields = ['title', 'description', 'location', 'salary_min', 'salary_max', 'job_type', 'is_active']
+        widgets = {
+            'description': SummernoteWidget(),
+        }

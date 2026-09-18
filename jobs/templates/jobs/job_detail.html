@@ -37,6 +37,9 @@
     </div>
     <div>
         <button>Apply</button>
+        {% if request.user.is_authenticated and job.company == request.user.company_contact %}
+            <a href="{% url 'edit_job' job.slug %}">Edit this job</a>
+        {% endif %}
     </div>
     <div>
         <div>
