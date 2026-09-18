@@ -3,7 +3,7 @@ from django.core.exceptions import PermissionDenied
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 from .models import Job
-from .forms import JobForm
+from .forms import JobForm, JobEditForm
 
 # Create your views here. 
 class JobList(generic.ListView):
@@ -45,3 +45,18 @@ def post_job(request):
         'jobs/job_form.html', 
         {'form': form}
     )
+
+@login_required
+def edit_job(request, slug):
+    job = get_object_or_404(Job, slug=slug)
+
+    if job.company != request.user.company_contact:
+        raise PermissionDenied("You can only edit your own job listings.")
+
+    form = JobEditForm(request.POST or None, instance=job)
+
+    if request.method == 'POST' and form.is_valid():
+        form.save()
+        return redirect('job_detail', slug=job.slug)
+
+    return render(request, 'jobs/job_edit.html', {'form': form, 'job': job})
