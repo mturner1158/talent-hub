@@ -40,11 +40,33 @@ nav {
     background-color: var(--primary-text-colour);
 }
 
-#navbar .nav-btn .nav-link {
+#navbar .nav-link {
     font-family: var(--secondary-font);
     color: var(--primary-background-colour);
 }
 
+#logo {
+    color: var(--primary-background-colour);
+    font-weight: 600;
+    font-size: x-large;
+}
+
+.login-btn { 
+    background-color: var(--primary-colour);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 20px;
+    font-family: var(--primary-font);
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.login-btn:hover {
+    background-color: var(--primary-accent-colour);
+    color: #FFFFFF;
+}
 
 /* job cards on home page */
 
