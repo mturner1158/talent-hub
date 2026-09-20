@@ -6,25 +6,32 @@
     <h1>My Applications</h1>
 
     {% if applications %}
-        <div class="row">
-            {% for application in applications %}
-            <div class="col-md-6 mb-4">
-                <div class="custom-card h-100">
-                    <div class="card-body">
-                        <h2 class="job-title-card">{{ application.job.title }}</h2>
-                        <p class="company-name-card">{{ application.job.company.company_name }}</p>
-                        <p>Status: <strong>{{ application.get_status_display }}</strong></p>
-                        <p>Applied on: {{ application.applied_on|date:"d M Y" }}</p>
-                        <a href="{% url 'job_detail' application.job.slug %}" class="btn btn-outline-secondary btn-sm">
-                            View job
-                        </a>
-                    </div>
+    <div class="row">
+        {% for application in applications %}
+        <div class="col-md-6 mb-4">
+            <div class="custom-card h-100">
+                <div class="card-body">
+                    <h2 class="job-title-card">{{ application.job.title }}</h2>
+                    <p class="company-name-card">{{ application.job.company.company_name }}</p>
+                    <p>Status: <strong>{{ application.get_status_display }}</strong></p>
+                    <p>Applied on: {{ application.applied_on|date:"d M Y" }}</p>
+                    <a href="{% url 'job_detail' application.job.slug %}" class="btn btn-outline-secondary btn-sm">
+                        View job
+                    </a>
+                    {% if application.status == 'submitted' or application.status == 'shortlisted' %}
+                    <form method="post" action="{% url 'withdraw_application' application.pk %}" class="d-inline"
+                        onsubmit="return confirm('Are you sure you want to withdraw this application?');">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-sm btn-outline-danger">Withdraw</button>
+                    </form>
+                    {% endif %}
                 </div>
             </div>
-            {% endfor %}
         </div>
+        {% endfor %}
+    </div>
     {% else %}
-        <p>You haven't applied to any jobs yet. <a href="{% url 'home' %}">Browse jobs</a></p>
+    <p>You haven't applied to any jobs yet. <a href="{% url 'home' %}">Browse jobs</a></p>
     {% endif %}
 </div>
 
