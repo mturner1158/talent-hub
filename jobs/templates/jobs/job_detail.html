@@ -67,6 +67,11 @@
                 Edit this job
             </button>
         </a>
+        <a href="{% url 'review_applications' job.slug %}">
+            <button type="button" class="btn login-btn">
+                View applicants
+            </button>
+        </a>
         {% endif %}
     </div>
     <div>

@@ -47,3 +47,56 @@ def my_applications(request):
         raise PermissionDenied("Only candidates have an applications list.")
     applications = Application.objects.filter(candidate=request.user.candidate_profile)
     return render(request, 'applications/my_applications.html', {'applications': applications})
+
+
+# only logged in users can see this view
+@login_required
+# view for a user to withdraw an application
+def withdraw_application(request, pk):
+    application = get_object_or_404(Application, pk=pk)
+
+    if not hasattr(request.user, 'candidate_profile') or application.candidate != request.user.candidate_profile:
+        raise PermissionDenied("You can only withdraw your own applications.")
+
+    if request.method == 'POST':
+        application.delete()
+        messages.success(request, "Application withdrawn.")
+
+    return redirect('my_applications')
+
+
+# only logged in users can see this view
+@login_required
+# view for companies to see what applications are submitted to their roles
+def review_applications(request, job_slug):
+    job = get_object_or_404(Job, slug=job_slug)
+    # confirm user is a company and jobs are owned by that company
+    if not hasattr(request.user, 'company_contact') or job.company != request.user.company_contact:
+        raise PermissionDenied("You can only view applicants for your own jobs.")
+
+    applications = job.applications.all()
+    return render(
+        request, 
+        'applications/review_applications.html', 
+        {'job': job, 
+         'applications': applications,
+         'status_choices': Application._meta.get_field('status').choices}
+        )
+
+# only logged in users can see this view
+@login_required
+# view for companies to update the status of an application
+def update_status(request, pk):
+    application = get_object_or_404(Application, pk=pk)
+    # confirm user is a company and jobs are owned by that company
+    if not hasattr(request.user, 'company_contact') or application.job.company != request.user.company_contact:
+        raise PermissionDenied
+
+    if request.method == 'POST':
+        new_status = request.POST.get('status')
+        if new_status in dict(Application.STATUS_CHOICES):
+            application.status = new_status
+            application.save()
+            messages.success(request, "Status updated.")
+
+    return redirect('review_applications', job_slug=application.job.slug)

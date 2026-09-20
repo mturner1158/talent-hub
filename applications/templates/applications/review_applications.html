@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container mt-3">
+    <h1>Applicants for {{ job.title }}</h1>
+
+    {% if applications %}
+    <div class="table-responsive">
+        <table class="table custom-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>UK working status</th>
+                    <th>Applied on</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for application in applications %}
+                <tr>
+                    <td>{{ application.candidate.first_name }} {{ application.candidate.last_name }}</td>
+                    <td>{{ application.uk_working_status|yesno:"Yes,No" }}</td>
+                    <td>{{ application.applied_on|date:"d M Y" }}</td>
+                    <td>
+                        <form method="post" action="{% url 'update_status' application.pk %}">
+                            {% csrf_token %}
+                            <select name="status" class="form-select form-select-sm">
+                                {% for value, label in status_choices %}
+                                <option value="{{ value }}" {% if value == application.status %}selected{% endif %}>
+                                    {{ label }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                            <button type="submit" class="btn btn-sm btn-outline-primary mt-1">Update</button>
+                        </form>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
+                            data-bs-target="#profileModal{{ application.pk }}">
+                            See more
+                        </button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- modal to view more details on an applicaiton -->
+    {% for application in applications %}
+    <div class="modal fade" id="profileModal{{ application.pk }}" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{ application.candidate.first_name }} {{ application.candidate.last_name }}
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Skills:</strong> {{ application.candidate.skills }}</p>
+                    <p><strong>Personal statement:</strong> {{ application.candidate.personal_statement }}</p>
+                    <p><strong>Experience:</strong> {{ application.candidate.experience }}</p>
+                    <hr>
+                    <p><strong>Cover note for this role:</strong></p>
+                    <p>{{ application.cover_note }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    {% else %}
+    <p>No applications received for this job yet.</p>
+    {% endif %}
+</div>
+
+{% endblock %}
