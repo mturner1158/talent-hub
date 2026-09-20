@@ -35,12 +35,18 @@
               href="{% url 'home' %}">Jobs</a>
           </li>
           <li class="nav-item">
-            
+
           </li>
           {% if request.user.is_authenticated and request.user.candidate_profile %}
           <li>
             <a class="nav-link" aria-current="{% if request.path == my_applications_url %}active{% endif %}"
               href="{% url 'my_applications' %}">My Applications</a>
+          </li>
+          {% endif %}
+          {% if request.user.is_authenticated and request.user.company_contact %}
+          <li>
+            <a class="nav-link" aria-current="{% if request.path == company_dashboard_url %}page{% endif %}"
+              href="{% url 'company_dashboard' %}">My Jobs</a>
           </li>
           {% endif %}
         </ul>
