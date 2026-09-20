@@ -42,6 +42,10 @@
             <a class="nav-link" aria-current="{% if request.path == my_applications_url %}active{% endif %}"
               href="{% url 'my_applications' %}">My Applications</a>
           </li>
+          <li>
+            <a class="nav-link" aria-current="{% if request.path == edit_candidate_profile_url %}active{% endif %}" 
+              href="{% url 'edit_candidate_profile' %}">Edit profile</a>
+          </li>
           {% endif %}
           {% if request.user.is_authenticated and request.user.company_contact %}
           <li>
