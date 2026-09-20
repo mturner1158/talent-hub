@@ -58,9 +58,9 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p><strong>Skills:</strong> {{ application.candidate.skills }}</p>
-                    <p><strong>Personal statement:</strong> {{ application.candidate.personal_statement }}</p>
-                    <p><strong>Experience:</strong> {{ application.candidate.experience }}</p>
+                    <p><strong>Skills:</strong> {{ application.candidate.skills|safe }}</p>
+                    <p><strong>Personal statement:</strong> {{ application.candidate.personal_statement|safe }}</p>
+                    <p><strong>Experience:</strong> {{ application.candidate.experience|safe }}</p>
                     <hr>
                     <p><strong>Cover note for this role:</strong></p>
                     <p>{{ application.cover_note }}</p>
