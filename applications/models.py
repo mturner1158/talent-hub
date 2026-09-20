@@ -7,6 +7,7 @@ STATUS_CHOICES = (
         ('shortlisted', 'Shortlisted'),
         ('rejected', 'Rejected'),
         ('hired', 'Hired'),
+        ('withdrawn', 'Withdrawn'),
     )
 
 # Create your models here.
@@ -18,7 +19,7 @@ class Application(models.Model):
     candidate = models.ForeignKey(Candidate, on_delete=models.CASCADE, related_name='applications')
     cover_note = models.TextField()
     uk_working_status = models.BooleanField(default=True)
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='received')
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='submitted')
     applied_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
 
