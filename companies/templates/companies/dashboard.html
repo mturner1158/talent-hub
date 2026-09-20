@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+<div class="container mt-3">
+    <div class="d-flex justify-content-between align-items-center flex-wrap">
+        <h1>My jobs</h1>
+        <a href="" class="btn btn-outline-secondary">Edit profile</a>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-4 mb-2">
+            <div class="custom-card text-center">
+                <div class="card-body">
+                    <p class="mb-0">Active jobs</p>
+                    <h2>{{ active_jobs_count }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-2">
+            <div class="custom-card text-center">
+                <div class="card-body">
+                    <p class="mb-0">Applications</p>
+                    <h2>{{ unique_applicants_count }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-2">
+            <a href="{% url 'post_job' %}" class="custom-card text-center d-flex align-items-center justify-content-center h-100 text-decoration-none">
+                <span class="fs-5">Post a Job +</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        {% for job in jobs %}
+        <div class="col-md-6 mb-3">
+            <div class="custom-card">
+                <div class="card-body">
+                    <h3 class="job-title-card">
+                        {{ job.title }} — {% if job.is_active %}Active{% else %}Inactive{% endif %}
+                    </h3>
+                    <a href="{% url 'edit_job' job.slug %}" class="btn btn-sm btn-outline-secondary">Edit</a>
+                    <a href="{% url 'review_applications' job.slug %}" class="btn btn-sm btn-outline-secondary">View applicants</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
