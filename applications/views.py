@@ -51,15 +51,16 @@ def my_applications(request):
 
 # only logged in users can see this view
 @login_required
-# view for a user to withdraw an application
+# view for user to withdraw an application
 def withdraw_application(request, pk):
     application = get_object_or_404(Application, pk=pk)
-
+    # confirm the user is a candidate and see their own applications
     if not hasattr(request.user, 'candidate_profile') or application.candidate != request.user.candidate_profile:
         raise PermissionDenied("You can only withdraw your own applications.")
 
     if request.method == 'POST':
-        application.delete()
+        application.status = 'withdrawn'
+        application.save()
         messages.success(request, "Application withdrawn.")
 
     return redirect('my_applications')
