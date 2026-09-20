@@ -4,6 +4,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 from .models import Job
 from .forms import JobForm, JobEditForm
+from applications.forms import ApplicationForm
 
 # Create your views here. 
 class JobList(generic.ListView):
@@ -17,10 +18,12 @@ def job_detail(request, slug):
     """
     queryset = Job.objects.filter(is_active=1)
     job = get_object_or_404(queryset, slug=slug)
+    form = ApplicationForm() # link my application form to job_detail for the modal
     return render(
         request,
         "jobs/job_detail.html",
-        {"job": job},
+        {"job": job,
+         "form": form},
     )
 
 @login_required

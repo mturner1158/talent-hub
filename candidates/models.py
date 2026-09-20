@@ -6,7 +6,8 @@ class Candidate(models.Model):
     """
     Contains a profile for each candidate who would like to submit a job application
     """
-    account = models.ForeignKey(User, on_delete=models.CASCADE, related_name="candidate_profile")
+
+    account = models.OneToOneField(User, on_delete=models.CASCADE, related_name="candidate_profile")
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
     personal_statement = models.TextField()
