@@ -8,6 +8,7 @@ from .forms import ApplicationForm
 
 # only logged in users can see this view
 @login_required
+# view to apply for a job
 def apply_to_job(request, slug):
     # confirm the user is a candidate
     if not hasattr(request.user, 'candidate_profile'): 
@@ -36,3 +37,13 @@ def apply_to_job(request, slug):
         'applications/apply.html',
         {'form': form, 'job': job}
         )
+
+# only logged in users can see this view
+@login_required
+# view for all applications a user has submitted
+def my_applications(request):
+    # confirm the user is a candidate
+    if not hasattr(request.user, 'candidate_profile'):
+        raise PermissionDenied("Only candidates have an applications list.")
+    applications = Application.objects.filter(candidate=request.user.candidate_profile)
+    return render(request, 'applications/my_applications.html', {'applications': applications})
