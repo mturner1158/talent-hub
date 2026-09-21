@@ -8,9 +8,32 @@ from applications.forms import ApplicationForm
 
 # Create your views here. 
 class JobList(generic.ListView):
-    queryset = Job.objects.all()
     template_name = "job_list.html"
-    # paginate_by = 4
+    context_object_name = "job_list"
+
+    def get_queryset(self):
+        queryset = Job.objects.filter(is_active=True)
+
+        keyword = self.request.GET.get('keyword')
+        location = self.request.GET.get('location')
+        job_type = self.request.GET.get('job_type')
+
+        if keyword:
+            queryset = queryset.filter(title__icontains=keyword)
+        if location:
+            queryset = queryset.filter(location__icontains=location)
+        if job_type:
+            queryset = queryset.filter(job_type=job_type)
+
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['keyword'] = self.request.GET.get('keyword', '')
+        context['location'] = self.request.GET.get('location', '')
+        context['job_type'] = self.request.GET.get('job_type', '')
+        context['job_type_choices'] = Job._meta.get_field('job_type').choices
+        return context
 
 def job_detail(request, slug):
     """
