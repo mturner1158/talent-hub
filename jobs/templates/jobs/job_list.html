@@ -3,10 +3,34 @@
 
 {% block content %}
 
-<!-- Job Entries Column -->
 <div class="col-12 mt-3 left">
     <h1>Find your dream job!</h1>
     <p>Use the tiles below to search and browse roles and select the arrows for more details</p>
+
+    <form method="get" class="row g-2 mb-4">
+        <div class="col-md-4">
+            <input type="text" name="keyword" class="form-control" placeholder="Job title..." value="{{ keyword }}">
+        </div>
+        <div class="col-md-3">
+            <input type="text" name="location" class="form-control" placeholder="Location..." value="{{ location }}">
+        </div>
+        <div class="col-md-3">
+            <select name="job_type" class="form-select">
+                <option value="">Any job type</option>
+                {% for value, label in job_type_choices %}
+                <option value="{{ value }}" {% if value == job_type %}selected{% endif %}>{{ label }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-1">
+            <button type="submit" class="btn btn-login w-100">Search</button>
+        </div>
+        <div class="col-md-1">
+            <a href="{% url 'home' %}" class="btn btn-outline-secondary w-100"><i class="fa-solid fa-arrow-rotate-left"></i></a>
+        </div>
+    </form>
+
+    {% if job_list %}
     <div class="row">
         {% for job in job_list %}
         <div class="col-md-4 d-flex mb-4">
@@ -22,7 +46,8 @@
                             <p class="job-salary-card">Up to: £{{ job.salary_max|intcomma }}</p>
                         </div>
                         <div class="col-2">
-                            <p><a href="{% url 'job_detail' job.slug %}" class="post-link"><i class="fa-solid fa-angles-right"></i></a></p>
+                            <p><a href="{% url 'job_detail' job.slug %}" class="post-link"><i
+                                        class="fa-solid fa-angles-right"></i></a></p>
                         </div>
                     </div>
                 </div>
@@ -30,6 +55,10 @@
         </div>
         {% endfor %}
     </div>
+    {% else %}
+    <p>No jobs match your search. Try broadening your filters.</p>
+    {% endif %}
+
 </div>
 
 {% endblock %}
