@@ -245,40 +245,40 @@ Testing was carried out against the deployed Heroku site to confirm the deployed
  
 | # | Story | Test steps | Expected result | Status |
 |---|---|---|---|---|
-| 1.1 | As a visitor, I want to see a list of active job postings so I can decide whether to register. | Visit the site while logged out. | Job list page loads showing only jobs where `is_active=True`. | | 
-| 1.2 | As a visitor, I want to view full details of a single job so I understand what's required before signing up. | Click through from the job list to a job's detail page. | Full job detail displays: title, company, location, salary, description, job type. | | 
-| 1.3 | As a visitor, I want to register as either a Company or a Candidate so I can access the right dashboard. | Visit signup page, select "Company," complete form. Repeat for "Candidate." | Correct `Companies`/`Candidate` profile row created and linked to the new `User` in each case. | | 
-| 1.4 | As a visitor, I want to be redirected sensibly if I try to access a protected page. | While logged out, visit `/applications/my-applications/` directly. | Redirected to login page, not a broken page or server error. | |  
+| 1.1 | As a visitor, I want to see a list of active job postings so I can decide whether to register. | Visit the site while logged out. | Job list page loads showing only jobs where `is_active=True`. | Pass | 
+| 1.2 | As a visitor, I want to view full details of a single job so I understand what's required before signing up. | Click through from the job list to a job's detail page. | Full job detail displays: title, company, location, salary, description, job type. | Pass | 
+| 1.3 | As a visitor, I want to register as either a Company or a Candidate so I can access the right dashboard. | Visit signup page, select "Company," complete form. Repeat for "Candidate." | Correct `Companies`/`Candidate` profile row created and linked to the new `User` in each case. | Pass | 
+| 1.4 | As a visitor, I want to be redirected sensibly if I try to access a protected page. | While logged out, visit `/applications/my-applications/` directly. | Redirected to login page, not a broken page or server error. | Pass |  
  
  
 #### User 2: Candidate
  
 | # | Story | Test steps | Expected result | Status |
 |---|---|---|---|---|
-| 2.1 | As a candidate, I want to create a profile with my name, skills, and a short CV summary. | Sign up as a Candidate. | Candidate profile row created with correct linked `User`. | |  
-| 2.2 | As a candidate, I want to edit my profile so I can keep it up to date. | Log in as Candidate, visit edit profile page, update fields, save. | Changes persist on reload; visible correctly to companies reviewing an application. | |  
-| 2.3 | As a candidate, I want to search/filter jobs by keyword, location, or job type. | Use the search form with keyword only, location only, job type only, and combined. | Results correctly narrow in each case; combined filters use AND logic. | |  
-| 2.4 | As a candidate, I want to apply to a job with a short cover note. | Log in as Candidate, open a job's Apply modal, submit a cover note and working status. | `Application` row created, correctly linked to the job and candidate; status defaults to "Submitted." | |  
-| 2.5 | As a candidate, I want to be prevented from applying to the same job twice. | Apply to the same job a second time. | Friendly message shown ("You've already applied..."); no duplicate row created; no server error. | | 
-| 2.6 | As a candidate, I want to see a list of jobs I've applied to and their current status. | Visit "My Applications" after applying to one or more jobs. | All of the candidate's own applications shown, each with correct job title, company, and status. Applications belonging to other candidates are never shown. | |  
-| 2.7 | As a candidate, I want to withdraw an application I no longer want to pursue. | From "My Applications," withdraw an application with status "Submitted" or "Shortlisted." | Status changes to "Withdrawn"; row remains visible (not deleted); Withdraw button no longer shown for that row. | |  
-| 2.8 | As a candidate, I want clear confirmation when my application is submitted. | Submit an application. | A visible success message confirms submission. | |  
-| — | *(Negative test, not a stated story but a related permission check)* | Log in as Candidate, attempt to visit `/jobs/post/` directly. | `PermissionDenied` (403) — candidates cannot post jobs. | |  
+| 2.1 | As a candidate, I want to create a profile with my name, skills, and a short CV summary. | Sign up as a Candidate. | Candidate profile row created with correct linked `User`. | Pass |  
+| 2.2 | As a candidate, I want to edit my profile so I can keep it up to date. | Log in as Candidate, visit edit profile page, update fields, save. | Changes persist on reload; visible correctly to companies reviewing an application. | Pass |  
+| 2.3 | As a candidate, I want to search/filter jobs by keyword, location, or job type. | Use the search form with keyword only, location only, job type only, and combined. | Results correctly narrow in each case; combined filters use AND logic. | Pass |  
+| 2.4 | As a candidate, I want to apply to a job with a short cover note. | Log in as Candidate, open a job's Apply modal, submit a cover note and working status. | `Application` row created, correctly linked to the job and candidate; status defaults to "Submitted." | Pass |  
+| 2.5 | As a candidate, I want to be prevented from applying to the same job twice. | Apply to the same job a second time. | Friendly message shown ("You've already applied..."); no duplicate row created; no server error. | False | 
+| 2.6 | As a candidate, I want to see a list of jobs I've applied to and their current status. | Visit "My Applications" after applying to one or more jobs. | All of the candidate's own applications shown, each with correct job title, company, and status. Applications belonging to other candidates are never shown. | Pass |  
+| 2.7 | As a candidate, I want to withdraw an application I no longer want to pursue. | From "My Applications," withdraw an application with status "Submitted" or "Shortlisted." | Status changes to "Withdrawn"; row remains visible (not deleted); Withdraw button no longer shown for that row. | Yes |  
+| 2.8 | As a candidate, I want clear confirmation when my application is submitted. | Submit an application. | Redirect to my applicatons dashboard | Pass |  
+| — | *(Negative test, not a stated story but a related permission check)* | Log in as Candidate, attempt to visit `/jobs/post/` directly. | `PermissionDenied` (403) — candidates cannot post jobs. | Pass |  
  
 
 #### User 3: Company
  
 | # | Story | Test steps | Expected result | Status |
 |---|---|---|---|---|
-| 3.1 | As a company, I want to create a company profile (name, description, website). | Sign up as a Company. | Companies profile row created with correct linked `User`. | |  
-| 3.2 | As a company, I want to post a new job listing with title, description, location, salary range, and type. | Log in as Company, use "Post a Job" form. | New `Job` row created, correctly linked to the company; appears on public job list (if active). | |  
-| 3.3 | As a company, I want to edit or deactivate my own job listings. | Edit an owned job's details; separately, set `is_active` to False. | Changes save correctly; deactivated job disappears from the public job list and its detail page 404s for visitors. | |  
-| 3.4 | As a company, I want to be prevented from editing or deleting another company's job listing. | Log in as Company B, attempt to visit Company A's job edit URL directly. | `PermissionDenied` (403). | |  
-| 3.5 | As a company, I want to view all applicants for a specific job. | Log in as Company, click "View applicants" on an owned job. | Table of applicants for that job only, with name, skills, working status, applied date, status control. | |  
-| 3.6 | As a company, I want to update an applicant's status. | Change an applicant's status via the dropdown/update control. | Status updates immediately; reflected on reload for both company and candidate views. | |  
-| 3.7 | As a company, I want confirmation and feedback whenever I post, edit, or delete a job. | Post a job; edit a job; update an application status. | Success message shown after each action. | |  
-| — | *(Negative test)* | Log in as Company B, attempt to visit Company A's "review applicants" URL directly. | `PermissionDenied` (403). | |  
-| — | *(Negative test)* | Log in as Candidate, attempt to visit `/companies/dashboard/` or `/companies/profile/edit/` directly. | `PermissionDenied` (403). | |  
+| 3.1 | As a company, I want to create a company profile (name, description, website). | Sign up as a Company. | Companies profile row created with correct linked `User`. | Pass |  
+| 3.2 | As a company, I want to post a new job listing with title, description, location, salary range, and type. | Log in as Company, use "Post a Job" form. | New `Job` row created, correctly linked to the company; appears on public job list (if active). | Pass|  
+| 3.3 | As a company, I want to edit or deactivate my own job listings. | Edit an owned job's details; separately, set `is_active` to False. | Changes save correctly; deactivated job disappears from the public job list and its detail page 404s for visitors. | Pass |  
+| 3.4 | As a company, I want to be prevented from editing or deleting another company's job listing. | Log in as Company B, attempt to visit Company A's job edit URL directly. | `PermissionDenied` (403). | Pass |  
+| 3.5 | As a company, I want to view all applicants for a specific job. | Log in as Company, click "View applicants" on an owned job. | Table of applicants for that job only, with name, skills, working status, applied date, status control. | Pass |  
+| 3.6 | As a company, I want to update an applicant's status. | Change an applicant's status via the dropdown/update control. | Status updates immediately; reflected on reload for both company and candidate views. | Pass |  
+| 3.7 | As a company, I want confirmation and feedback whenever I post, edit, or delete a job. | Post a job; edit a job; update an application status. | Success message shown after each action. | TBC |  
+| — | *(Negative test)* | Log in as Company B, attempt to visit Company A's "review applicants" URL directly. | `PermissionDenied` (403). | Pass |  
+| — | *(Negative test)* | Log in as Candidate, attempt to visit `/companies/dashboard/` or `/companies/profile/edit/` directly. | `PermissionDenied` (403). | Pass |  
  
 
  
@@ -318,6 +318,9 @@ The following bugs occured during the design of this site:
 * back button pathing from job page erroring. All urls needed distinct names
 * could not submit a job application. Set account as a forein key rather than a one to one field to ensure django expects a unique value
 * when logged in as a company, updating the status would cause an error. The STATUS_CHOICES variable needed to be imported into the view to be used. 
+* favicon not showing. Needed to add to right static folder
+* redirect on submitting duplicate job entry NEED RESOLUTION
+* users signing up as companies are not mapping properly. Updated Companies.save() to guard against slugify() returning an empty string, and to check for slug collisions explicitly
 
 ## Deployment 
 
