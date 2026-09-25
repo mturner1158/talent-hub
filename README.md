@@ -119,7 +119,23 @@ The following frameworks are used in this project:
 * Bootstrap v5.3.8
 * Github
 * Google Fonts 
-* Font Aweseme 
+* Font Awesome 
+
+The following packages have been used in this project, and are also listed in requirements.txt: 
+
+* asgiref 3.12.1
+* bleach 6.4.0
+* dj-database-url 3.1.2
+* Django 6.1.1
+* django-allauth 65.19.2
+* django-environ 0.14.0
+* django-summernote 0.8.20.0
+* gunicorn 26.2.0
+* psycopg2-binary 2.9.12
+* sqlparse 0.6.0
+* tzdata 2026.3
+* webencodings 0.6.1
+* whitenoise 6.12.0
 
 The application is deployed using Heroku. 
 
@@ -147,9 +163,9 @@ Common features appear across all pages.
 #### Navigation Bar
 The navigation bar is featured on all pages and aims to apply consistant styling and positon for all users, built with responsive design. The navigation bar displays different options based on a users authentication. 
 
-* For no authentication, users will see one option to see available jobs 
-* For candidates who are authenticated, they can view the job list, their applications and edit their profile
-* For companies, they can view the available jobs and their job dashboard
+* For no authentication, users will see one option to see available jobs and the option to log in or register
+* For candidates who are authenticated, they can view the job list, their applications and edit their profile. They also have the option to log out.
+* For companies, they can view the available jobs and their job dashboard. They also have the option to log out.
 
 <img src="./wireframes/nav-bar.png">
 
@@ -159,7 +175,65 @@ The footer features links to key social media sites.
 
 <img src="./wireframes/footer.png">
 
-### Each Page Feature 
+### Job List
+The home page features a header with some information, followed by multiple search fields which can filter the job cards below. Each card holds key information about a role, including title, company, location and maximum salary. There is an arrow link to see more details. 
+
+<img src="./wireframes/home-page.png">
+
+### Job Details
+Once a user has selected a job card, they will be taken to a page showing the full job listing. Each job listing has a back button to take users back to the home page, the role title, key information displayed at the top and then the full job desription. Further down the page is information about the hiring company, and where provided a link to the companies website. 
+
+The user will also have different options available depending on their authentication and role. 
+
+* If a user is not authenticated, there will be no options to go any further in the application. 
+* If a user is authenticated as a candidate, there will be the 'Apply' button. Selecting this button will bring up a modal which will allow the user to write a cover note, select their working status and submit their application. 
+* If a user is authenticated as the company which owns the job listing, they will have the option to edit the role or view applications to the role
+* If a user is authenticated as a company which does not own the job listing, they will not see any buttons. 
+
+<img src="./wireframes/job-detail-1.png">
+<img src="./wireframes/job-detail-2.png>
+
+### Company Dashboard 
+The company dashboard is only available to users which are classfied as a company. The user has access to the following features: 
+
+* A count of active jobs 
+* The number of applications to their roles 
+* The option to post a new job listing 
+* Tiles for each role with the view to edit the role or view the applications to the role
+
+<img src="./wireframes/company-dashboard.png">
+
+### Job Listing Application List
+The application list for a role is only available to users which are classified as a company. The user has access to the following features: 
+
+* A list of applicants to the role 
+* Further details such as their working status and the date they applied on
+* A status field which is a drop down that updates the status of the application 
+* A see more button per applicant which displays their full application in a modal
+
+<img src="./wireframes/applicant-table.png">
+
+### Applicant Dashboard 
+The applicant dashboard is only availablto users which are classified as a candidate. The user has access to the following features: 
+
+* A view of all roles the user has applied to
+* The status of the users application 
+* The date the user applied to the job listing 
+* A link to view the job listing 
+* The option to withdraw their application
+
+<img src="./wireframes/candidate-dashbaord.png">
+
+### Edit Forms
+All edit forms across the project follow a similar format, with summernote used for rich text inputs. 
+
+* Candidate users will be able to access the edit profile form to update their skills
+* Company users will be able to access the edit profile form and the edit / post a job form
+
+<img src="./wireframes/edit-form.png">
+
+### Authentication 
+Modifying allauth's base templates, there are signup, sign in and log out pages matching the style of this web application.
 
 ## Testing 
 
