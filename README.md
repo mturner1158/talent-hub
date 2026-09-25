@@ -121,22 +121,6 @@ The following frameworks are used in this project:
 * Google Fonts 
 * Font Awesome 
 
-The following packages have been used in this project, and are also listed in requirements.txt: 
-
-* asgiref 3.12.1
-* bleach 6.4.0
-* dj-database-url 3.1.2
-* Django 6.1.1
-* django-allauth 65.19.2
-* django-environ 0.14.0
-* django-summernote 0.8.20.0
-* gunicorn 26.2.0
-* psycopg2-binary 2.9.12
-* sqlparse 0.6.0
-* tzdata 2026.3
-* webencodings 0.6.1
-* whitenoise 6.12.0
-
 The application is deployed using Heroku. 
 
 ## Data Model
@@ -261,7 +245,7 @@ Testing was carried out against the deployed Heroku site to confirm the deployed
 | 2.4 | As a candidate, I want to apply to a job with a short cover note. | Log in as Candidate, open a job's Apply modal, submit a cover note and working status. | `Application` row created, correctly linked to the job and candidate; status defaults to "Submitted." | Pass |  
 | 2.5 | As a candidate, I want to be prevented from applying to the same job twice. | Apply to the same job a second time. | Friendly message shown ("You've already applied..."); no duplicate row created; no server error. | False | 
 | 2.6 | As a candidate, I want to see a list of jobs I've applied to and their current status. | Visit "My Applications" after applying to one or more jobs. | All of the candidate's own applications shown, each with correct job title, company, and status. Applications belonging to other candidates are never shown. | Pass |  
-| 2.7 | As a candidate, I want to withdraw an application I no longer want to pursue. | From "My Applications," withdraw an application with status "Submitted" or "Shortlisted." | Status changes to "Withdrawn"; row remains visible (not deleted); Withdraw button no longer shown for that row. | Yes |  
+| 2.7 | As a candidate, I want to withdraw an application I no longer want to pursue. | From "My Applications," withdraw an application with status "Submitted" or "Shortlisted." | Status changes to "Withdrawn"; row remains visible (not deleted); Withdraw button no longer shown for that row. | Pass |  
 | 2.8 | As a candidate, I want clear confirmation when my application is submitted. | Submit an application. | Redirect to my applicatons dashboard | Pass |  
 | — | *(Negative test, not a stated story but a related permission check)* | Log in as Candidate, attempt to visit `/jobs/post/` directly. | `PermissionDenied` (403) — candidates cannot post jobs. | Pass |  
  
@@ -288,8 +272,6 @@ Testing was carried out against the deployed Heroku site to confirm the deployed
 |---|---|---|---|---|
 | 4.1 | As an admin, I want to manage all users, companies, jobs, and applications via the Django admin. | Log in to `/admin/` as a superuser. | All models (User, Companies, Candidate, Job, Application) visible and editable; can view/edit any record regardless of ownership. | Pass |
  
-
- 
 #### Cross-cutting checks (not tied to a single story)
  
 | # | Area | Test steps | Expected result |  Status |
@@ -313,19 +295,32 @@ The following bugs occured during the design of this site:
 
 |ID|Bug|Fix   |
 |:-----|:-------|:-------------|
-
-* auth additional question was not working and adding data to the database. Needed to update logic and fix a typo in the model
-* back button pathing from job page erroring. All urls needed distinct names
-* could not submit a job application. Set account as a forein key rather than a one to one field to ensure django expects a unique value
-* when logged in as a company, updating the status would cause an error. The STATUS_CHOICES variable needed to be imported into the view to be used. 
-* favicon not showing. Needed to add to right static folder
-* redirect on submitting duplicate job entry NEED RESOLUTION
-* users signing up as companies are not mapping properly. Updated Companies.save() to guard against slugify() returning an empty string, and to check for slug collisions explicitly
+|1|Auth additional question was not working and adding data to the database.|Needed to update logic and fix a typo in the model|
+|2|Back button pathing from job page erroring.|All urls needed distinct names|
+|3|Could not submit a job application.|Set account as a forein key rather than a one to one field to ensure django expects a unique value|
+|4|when logged in as a company, updating the status would cause an error.|The STATUS_CHOICES variable needed to be imported into the view to be used. |
+|5|favicon not showing.|Needed to add to right static folder|
+|6|redirect on submitting duplicate job entry||
+|7|users signing up as companies are not mapping properly.|Updated Companies.save() to guard against slugify() returning an empty string, and to check for slug collisions explicitly|
 
 ## Deployment 
 
 ## Code from External Sources 
-add packages used here 
+The following packages have been used in this project, and are also listed in requirements.txt: 
+
+* asgiref 3.12.1
+* bleach 6.4.0
+* dj-database-url 3.1.2
+* Django 6.1.1
+* django-allauth 65.19.2
+* django-environ 0.14.0
+* django-summernote 0.8.20.0
+* gunicorn 26.2.0
+* psycopg2-binary 2.9.12
+* sqlparse 0.6.0
+* tzdata 2026.3
+* webencodings 0.6.1
+* whitenoise 6.12.0
 
 ## Credits and Disclaimer 
 I have the following credits and disclamer: 
