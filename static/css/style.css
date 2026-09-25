@@ -108,6 +108,12 @@ nav {
     margin: 20px auto 0;
 }
 
+/* candidate profile styling */
+
+.edit-profile-btn {
+    margin-bottom: 10px;
+}
+
 /* footer styles */
 
 #footer {
