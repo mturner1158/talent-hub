@@ -258,6 +258,7 @@ The following bugs occured during the design of this site:
 * auth additional question was not working and adding data to the database. Needed to update logic and fix a typo in the model
 * back button pathing from job page erroring. All urls needed distinct names
 * could not submit a job application. Set account as a forein key rather than a one to one field to ensure django expects a unique value
+* when logged in as a company, updating the status would cause an error. The STATUS_CHOICES variable needed to be imported into the view to be used. 
 
 ## Deployment 
 

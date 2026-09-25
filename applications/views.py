@@ -3,7 +3,7 @@ from django.core.exceptions import PermissionDenied
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from jobs.models import Job
-from .models import Application
+from .models import Application, STATUS_CHOICES
 from .forms import ApplicationForm
 
 # only logged in users can see this view
@@ -86,16 +86,15 @@ def review_applications(request, job_slug):
 
 # only logged in users can see this view
 @login_required
-# view for companies to update the status of an application
 def update_status(request, pk):
     application = get_object_or_404(Application, pk=pk)
-    # confirm user is a company and jobs are owned by that company
+
     if not hasattr(request.user, 'company_contact') or application.job.company != request.user.company_contact:
         raise PermissionDenied
 
     if request.method == 'POST':
         new_status = request.POST.get('status')
-        if new_status in dict(Application.STATUS_CHOICES):
+        if new_status in dict(STATUS_CHOICES):
             application.status = new_status
             application.save()
             messages.success(request, "Status updated.")
