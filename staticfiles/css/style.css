@@ -22,7 +22,9 @@ main {
     background-color: var(--primary-background-colour);
     font-family: var(--primary-font);
     color: var(--primary-text-colour);
-    padding: 30px;
+    padding-top: 100px;
+    padding-left: 30px;
+    padding-right: 30px;
     background-size: cover;
     width: 100%;
     min-height: 97vh;
@@ -78,6 +80,38 @@ nav {
 
 .company-name-card {
     font-style: italic;
+}
+
+#job-link {
+    color: var(--primary-colour);
+}
+
+
+/* job detail styles */
+
+#job-detail-company-section {
+    margin-top: 30px;
+}
+
+#job-detail-back {
+     color: var(--primary-colour);
+     font-size: xx-large;
+}
+
+.key-job-details {
+    padding: 20px;
+    font-style: italic;
+}
+
+.apply-submit-btn {
+    display: block;
+    margin: 20px auto 0;
+}
+
+/* candidate profile styling */
+
+.edit-profile-btn {
+    margin-bottom: 10px;
 }
 
 /* footer styles */
