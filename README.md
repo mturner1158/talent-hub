@@ -325,3 +325,6 @@ The following bugs occured during the design of this site:
 add packages used here 
 
 ## Credits and Disclaimer 
+I have the following credits and disclamer: 
+
+* My favicon is from here <a href="https://www.flaticon.com/free-icons/recruitment" title="recruitment icons">Recruitment icons created by Md Tanvirul Haque - Flaticon</a>
