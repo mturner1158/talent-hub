@@ -104,11 +104,30 @@ This page shows all the roles a candidate has applied for, the status and the op
 <img src="wireframes/candidate-page.png">
 
 ## Frameworks & Languages
+This section highlights all the languages and frameworks used in this project. 
+
+The following languages are used in this project: 
+
+* HTML
+* CSS
+* Python
+* Javascript
+
+The following frameworks are used in this project: 
+
+* Django 6.1.1
+* Bootstrap v5.3.8
+* Github
+* Google Fonts 
+* Font Aweseme 
+
+The application is deployed using Heroku. 
 
 ## Data Model
 In this project, my application will utilise a PostgreSQL data base provided by the Code Instutute. I have created the following tables and provided a graphical representation of how they are connected. 
 
-### Table 1: Users
+<img src="./wireframes/data-model.png">
+
 The Users table will contain user information be created through Django authentication. 
 
 |Data Type|Field|Key|
