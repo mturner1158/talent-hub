@@ -139,10 +139,25 @@ In this project, my application will utilise a PostgreSQL data base provided by 
 Relationships are shown by the lines joining the tables, with a 1 on each end meaining a one-to-one connection and a 1 and a cross on the end meaning a one-to-many connection.
 
 ## Features 
+This section outlines key features on each page. 
 
 ### Common Features 
+Common features appear across all pages. 
 
-#### One per Item TBC
+#### Navigation Bar
+The navigation bar is featured on all pages and aims to apply consistant styling and positon for all users, built with responsive design. The navigation bar displays different options based on a users authentication. 
+
+* For no authentication, users will see one option to see available jobs 
+* For candidates who are authenticated, they can view the job list, their applications and edit their profile
+* For companies, they can view the available jobs and their job dashboard
+
+<img src="./wireframes/nav-bar.png">
+
+#### Footer
+
+The footer features links to key social media sites. 
+
+<img src="./wireframes/footer.png">
 
 ### Each Page Feature 
 
