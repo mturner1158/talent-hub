@@ -191,7 +191,7 @@ The user will also have different options available depending on their authentic
 * If a user is authenticated as a company which does not own the job listing, they will not see any buttons. 
 
 <img src="./wireframes/job-detail-1.png">
-<img src="./wireframes/job-detail-2.png>
+<img src="./wireframes/job-detail-2.png">
 
 ### Company Dashboard 
 The company dashboard is only available to users which are classfied as a company. The user has access to the following features: 
