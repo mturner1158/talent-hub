@@ -26,7 +26,8 @@
             <button type="submit" class="btn btn-login w-100">Search</button>
         </div>
         <div class="col-md-1">
-            <a href="{% url 'home' %}" class="btn btn-outline-secondary w-100"><i class="fa-solid fa-arrow-rotate-left"></i></a>
+            <a href="{% url 'home' %}" class="btn btn-login w-100">
+                <i class="fa-solid fa-arrow-rotate-left"></i></a>
         </div>
     </form>
 
@@ -46,7 +47,7 @@
                             <p class="job-salary-card">Up to: £{{ job.salary_max|intcomma }}</p>
                         </div>
                         <div class="col-2">
-                            <p><a href="{% url 'job_detail' job.slug %}" class="post-link"><i
+                            <p><a id="job-link" href="{% url 'job_detail' job.slug %}" class="post-link"><i
                                         class="fa-solid fa-angles-right"></i></a></p>
                         </div>
                     </div>
