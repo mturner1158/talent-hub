@@ -5,10 +5,10 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-2">
-            <a href="{% url 'home' %}"><i class="fa-solid fa-angles-left"></i></a>
+        <div class="col-1">
+            <a id="job-detail-back" href="{% url 'home' %}"><i class="fa-solid fa-angles-left"></i></a>
         </div>
-        <div class="col-10">
+        <div class="col-11">
             <h1>{{ job.title }}</h1>
         </div>
     </div>
@@ -32,13 +32,14 @@
 </div>
 
 <div class="container">
-    <div>
+    <div class="description">
+        <h4>The job has the following requires: </h4>
         {{ job.description|safe}}
     </div>
     <div>
 
         {% if request.user.is_authenticated and request.user.candidate_profile %}
-        <button type="button" class="btn login-btn" data-bs-toggle="modal" data-bs-target="#applyModal">
+        <button type="button" class="btn login-btn apply-submit-btn" data-bs-toggle="modal" data-bs-target="#applyModal">
             Apply
         </button>
 
@@ -53,7 +54,7 @@
                         <form method="post" action="{% url 'apply_to_job' job.slug %}">
                             {% csrf_token %}
                             {{ form.as_p }}
-                            <button type="submit" class="btn btn-login">Submit application</button>
+                            <button type="submit" class="btn login-btn">Submit application</button>
                         </form>
                     </div>
                 </div>
@@ -74,15 +75,20 @@
         </a>
         {% endif %}
     </div>
-    <div>
-        <div>
-            <h3>About {{ job.company.company_name }}</h3>
-            <p>{{ job.company.description|safe }}</p>
-            {% if job.company.website %}
-            <p><a href="{{ job.company.website }}" target="_blank">{{ job.company.website }}</a></p>
-            {% endif %}
-        </div>
+
+    <div id="job-detail-company-section">
+        <h3>About {{ job.company.company_name }}</h3>
+        <p>{{ job.company.description|safe }}</p>
+        {% if job.company.website %}
+        <p><a href="{{ job.company.website }}" target="_blank">
+                <button type="button" class="btn login-btn">
+                    View Website
+                </button>
+            </a>
+        </p>
+        {% endif %}
     </div>
+
 </div>
 
 
