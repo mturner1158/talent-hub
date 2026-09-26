@@ -283,10 +283,15 @@ Testing was carried out against the deployed Heroku site to confirm the deployed
 | C.5 | Broken links / navigation | Click through every nav link, footer link, and back button while logged out, as Candidate, and as Company. | No broken links or unexpected errors for any role. | Pass |  
 
 ### Lighthouse Testing 
+I used the developer lighthouse tool testing to ensure my website is loading efficiently, is accessible, follows best practice and is optimised via search engine optimisation. The outcomes are shown below. 
+
+<img src="./wireframes/lighthouse-testing.png>
 
 ### HTML
+Using the [HTML Validator](https://validator.w3.org/), I received errors for duplicate id's on links however these are generated using Django code therefore not an issue. 
 
 ### CSS
+Using the [CSS Validator](https://jigsaw.w3.org/css-validator/), I have no recorded errors and 265 warnings due to the variables not statically checked.
 
 ### Django TestCase 
 I have used the Django testing framework on two of the four applications in this project. 
