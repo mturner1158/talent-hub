@@ -15,7 +15,7 @@
             <input type="text" name="location" class="form-control" placeholder="Location..." value="{{ location }}">
         </div>
         <div class="col-md-3">
-            <select name="job_type" class="form-select">
+            <select name="job_type" class="form-select" aria-label="Filter by job type">
                 <option value="">Any job type</option>
                 {% for value, label in job_type_choices %}
                 <option value="{{ value }}" {% if value == job_type %}selected{% endif %}>{{ label }}</option>
@@ -47,8 +47,8 @@
                             <p class="job-salary-card">Up to: £{{ job.salary_max|intcomma }}</p>
                         </div>
                         <div class="col-2">
-                            <p><a id="job-link" href="{% url 'job_detail' job.slug %}" class="post-link"><i
-                                        class="fa-solid fa-angles-right"></i></a></p>
+                            <p><a id="job-link" href="{% url 'job_detail' job.slug %}" class="post-link" aria-label="View details for {{ job.title }}"><i
+                                        class="fa-solid fa-angles-right" aria-hidden="true"></i></a></p>
                         </div>
                     </div>
                 </div>

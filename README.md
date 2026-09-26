@@ -376,3 +376,4 @@ The following packages have been used in this project, and are also listed in re
 I have the following credits and disclamer: 
 
 * My favicon is from here <a href="https://www.flaticon.com/free-icons/recruitment" title="recruitment icons">Recruitment icons created by Md Tanvirul Haque - Flaticon</a>
+* Companies and users have been used with permission (for Finyx Consulting and vaarious friends and faimly for users) or generated using Claude Sonnet 5. 
