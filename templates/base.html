@@ -24,7 +24,7 @@
 
 <body class="d-flex flex-column h-100 main-bg">
   <!-- Navigation -->
-  <nav id="navbar" class="navbar navbar-expand-lg fixed-top">
+  <nav id="navbar" class="navbar navbar-expand-lg sticky-top">
     <div class="container-fluid">
       <a id="logo" class="navbar-brand" href="#">Talent Hub</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
@@ -46,7 +46,7 @@
               href="{% url 'my_applications' %}">My Applications</a>
           </li>
           <li>
-            <a class="nav-link" aria-current="{% if request.path == edit_candidate_profile_url %}active{% endif %}" 
+            <a class="nav-link" aria-current="{% if request.path == edit_candidate_profile_url %}active{% endif %}"
               href="{% url 'edit_candidate_profile' %}">Edit profile</a>
           </li>
           {% endif %}
@@ -71,9 +71,11 @@
   </nav>
 
   {% if messages %}
-  {% for message in messages %}
-  <div class="alert alert-{{ message.tags }}">{{ message }}</div>
-  {% endfor %}
+    <div class="container mt-3">
+      {% for message in messages %}
+        <div style="background: red; color: white; padding: 20px; font-size: 24px;" class="alert alert-{{ message.tags }}">{{ message }}</div>
+      {% endfor %}
+    </div>
   {% endif %}
 
   <main class="flex-shrink-0 main-bg">
