@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
+from django.contrib import messages
 from .models import Job
 from .forms import JobForm, JobEditForm
 from applications.forms import ApplicationForm
@@ -64,6 +65,7 @@ def post_job(request):
         job = form.save(commit=False)
         job.company = company
         job.save()
+        messages.success(request, "Job posted successfully!")
         return redirect('job_detail', slug=job.slug)
 
     return render(
@@ -83,6 +85,12 @@ def edit_job(request, slug):
 
     if request.method == 'POST' and form.is_valid():
         form.save()
+        messages.success(request, "Job updated successfully!")
         return redirect('job_detail', slug=job.slug)
 
-    return render(request, 'jobs/job_edit.html', {'form': form, 'job': job})
+    return render(
+        request, 
+        'jobs/job_edit.html', 
+        {'form': form, 
+         'job': job}
+    )
