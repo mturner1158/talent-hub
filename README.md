@@ -327,6 +327,33 @@ The following bugs occured during the design of this site:
 |7|users signing up as companies are not mapping properly.|Updated Companies.save() to guard against slugify() returning an empty string, and to check for slug collisions explicitly|
 
 ## Deployment 
+For the version control, deployment and hosting of this site I have used Github and Heroku. 
+
+### Cloning the Repository 
+To take your own version of this repository, you will have to use the following steps: 
+
+1. Select the fork buttn in the top right corner of the repository and add to your own 
+2. Clone the reposiotry using the green 'Code' button 
+3. Copy the repository URL to your clipboard
+4. Open your terminal and run: git clone [REPOSITORY URL] 
+5. Change int othe project directory 
+
+This should mean you have a local copy of the repository to edit. 
+
+### Deploying to Heroku
+The live version of this site is hosted using Heroku. To deploy your own version of the application, you need to use the following steps: 
+
+1. Set up a Heroku account and log in
+2. Select 'New' in the top right and create new app
+3. Name your app and choose the correct region before selecting create app 
+4. Edit the config vars section within the settings tab with your unique SECRET_KEY, DATABASE_URL and any other unique variables you have incldued in your project
+5. In the deploy tab, choose GitHub as your deployment method 
+6. Choose the correct repository and ensure the correct branch is selected (ususally main)
+7. Use the 'deploy branch' button in the manual deployments section and let this run
+8. Use the open app button to launch the application
+
+Please note, within your allowed hosts within settings.py of your application, you should have '.herokuapp.com' or else this will not deploy. 
+
 
 ## Code from External Sources 
 The following packages have been used in this project, and are also listed in requirements.txt: 
