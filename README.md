@@ -289,6 +289,29 @@ Testing was carried out against the deployed Heroku site to confirm the deployed
 ### CSS
 
 ### Django TestCase 
+I have used the Django testing framework on two of the four applications in this project. 
+
+#### Jobs Testing
+The following tests have been ran and passed for the jobs application: 
+
+1. An anonmyous visitor should be redirected to login when navigating to the job posting form
+2. A logged in candidate user is denied access to the job posting form
+3. A logged in company user can access the job posting form
+4. A logged in company user can access the edit job form for its own job listings 
+5. A logged in company user cannot edit the job of a different company 
+6. A job marked as 'not active' is not displayed on the home page or accessible via URL
+7. A job marked as 'active' is displayed on the home page 
+
+#### Applications Testing
+The following tests have been ran and passed for the applications application: 
+
+1. A logged in company user cannot apply to a job listing 
+2. A logged in candidate user can apply for a job 
+3. A logged in candidate user cannot apply for the same job twice 
+4. A logged in company user can view the application list for its own job 
+5. A logged in company user can only see applications for their own job listings 
+6. Withdrawing an application marks it as withdrawn, but keeps the datarow
+7. A logged in candidate user cannot withdraw another candidates application 
 
 ## Bugs
 The following bugs occured during the design of this site: 
