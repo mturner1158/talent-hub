@@ -1,9 +1,12 @@
 # Project 3: Talent Hub
-Talent Hub is a web application which allows a company to create a profile to uplaod job applications and applications to browse and apply for the uploaded jobs. 
+Talent Hub is a web application which allows a company to create a profile to uplaod job applications and applications to browse and apply for the uploaded jobs.
+
+My live application can be accessed here: [Talent Hub](https://talenthub-333409c50459.herokuapp.com/)
 
 ## Table of Contents
 
-TBC
+- [Project Goals](#project-goals)
+- [user Experience](#user-experience)
 
 ## Project Goals 
 This web application will allow users to upload or view job applications that are posted to the site. A user can sign up as a company or a candidate and then use the features. 
@@ -137,6 +140,8 @@ In this project, my application will utilise a PostgreSQL data base provided by 
 |Companies|The Companies table will contain information related to the company that can be viewed by the applicants.|
 
 Relationships are shown by the lines joining the tables, with a 1 on each end meaining a one-to-one connection and a 1 and a cross on the end meaning a one-to-many connection.
+
+## Security 
 
 ## Features 
 This section outlines key features on each page. 
