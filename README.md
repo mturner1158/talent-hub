@@ -1,5 +1,5 @@
 # Project 3: Talent Hub
-Talent Hub is a web application which allows a company to create a profile to uplaod job applications and applications to browse and apply for the uploaded jobs.
+Talent Hub is a web application which allows a company to create a profile to upload job applications and applications to browse and apply for the uploaded jobs.
 
 My live application can be accessed here: [Talent Hub](https://talenthub-333409c50459.herokuapp.com/)
 
@@ -152,6 +152,26 @@ In this project, my application will utilise a PostgreSQL data base provided by 
 Relationships are shown by the lines joining the tables, with a 1 on each end meaining a one-to-one connection and a 1 and a cross on the end meaning a one-to-many connection.
 
 ## Security 
+Security has been considered throughout the development and deployment of this Django application. The project uses Django's built-in security features alongside additional configuration and authentication controls provided by django-allauth.
+
+### Application Security
+* Django security features: Django's built-in protections help defend against common web vulnerabilities, including Cross-Site Request Forgery (CSRF), SQL injection, and cross-site scripting (XSS).
+* Authentication: User authentication and account management are handled using django-allauth, providing a structured and secure approach to registration, login, logout, and account management.
+* Password security: User passwords are managed through Django's built-in password hashing and authentication system rather than being stored as plain text.
+CSRF protection: Django's CSRF middleware is enabled to help prevent unauthorised requests from trusted users' browsers.
+* Environment variables: Sensitive configuration such as the Django SECRET_KEY and production credentials are kept outside the source code and supplied through environment variables.
+* Debug mode: DEBUG is disabled in the production deployment to avoid exposing sensitive application information.
+* Allowed hosts: Django's ALLOWED_HOSTS setting is configured for the production environment rather than allowing requests from arbitrary domains.
+
+### Source Code Security
+A .gitignore file is included to prevent sensitive or unnecessary files from being committed to the Git repository. This includes local environment files, Python cache files, development databases, and other files that should not be shared publicly.
+
+Sensitive information such as secret keys, passwords, API credentials, and database credentials is not stored directly in the repository.
+
+### Heroku Deployment
+The application is deployed using Heroku. Production configuration and sensitive values are managed using Heroku Config Vars rather than being hard-coded into the application.
+
+The production deployment is configured separately from local development, with security-related Django settings applied through environment variables where appropriate.
 
 ## Features 
 This section outlines key features on each page. 
