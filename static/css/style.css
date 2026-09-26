@@ -22,12 +22,11 @@ main {
     background-color: var(--primary-background-colour);
     font-family: var(--primary-font);
     color: var(--primary-text-colour);
-    padding-top: 100px;
     padding-left: 30px;
     padding-right: 30px;
     background-size: cover;
     width: 100%;
-    min-height: 97vh;
+    /* min-height: 97vh; */
     position: relative;
 }
 
