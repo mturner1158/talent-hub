@@ -6,7 +6,17 @@ My live application can be accessed here: [Talent Hub](https://talenthub-333409c
 ## Table of Contents
 
 - [Project Goals](#project-goals)
-- [user Experience](#user-experience)
+- [User Experience](#user-experience)
+- [Design](#design)
+- [Frameworks & Languages](#frameworks--languages)
+- [Data Model](#data-model)
+- [Security](#security)
+- [Features](#features)
+- [Testing](#testing)
+- [Bugs](#bugs)
+- [Deployment](#deployment)
+- [Code from External Sources](#code-from-external-sources)
+- [Credits & Disclaimer](#credits-and-disclaimer)
 
 ## Project Goals 
 This web application will allow users to upload or view job applications that are posted to the site. A user can sign up as a company or a candidate and then use the features. 
