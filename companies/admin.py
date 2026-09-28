@@ -10,5 +10,3 @@ class CompaniesAdmin(SummernoteModelAdmin):
     summernote_fields = ('description', 'sectors',)
     prepopulated_fields = {'slug': ('company_name',)}
 
-
-# Register your models here.

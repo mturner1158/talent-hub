@@ -5,8 +5,10 @@
 <div class="container">
     <h1>My Applications</h1>
 
+    <!-- checks if a user has any applications -->
     {% if applications %}
     <div class="row">
+        <!-- loops across all applications to provide cards -->
         {% for application in applications %}
         <div class="col-md-6 mb-4">
             <div class="custom-card h-100">
@@ -30,6 +32,7 @@
         </div>
         {% endfor %}
     </div>
+    <!-- if a user has no applications they see this instead -->
     {% else %}
     <p>You haven't applied to any jobs yet. <a href="{% url 'home' %}">Browse jobs</a></p>
     {% endif %}

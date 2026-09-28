@@ -2,6 +2,8 @@ from django import forms
 from django_summernote.widgets import SummernoteWidget
 from .models import Job
 
+# post a job form
+
 class JobForm(forms.ModelForm):
     class Meta:
         model = Job
@@ -9,6 +11,8 @@ class JobForm(forms.ModelForm):
         widgets = {
             'description': SummernoteWidget(),
         }
+
+# edit a job form
 
 class JobEditForm(forms.ModelForm):
     class Meta:

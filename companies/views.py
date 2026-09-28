@@ -31,6 +31,7 @@ def dashboard(request):
 @login_required
 # allows a company to edit its profile 
 def edit_profile(request):
+    # only companies can edit
     if not hasattr(request.user, 'company_contact'):
         raise PermissionDenied("Only companies have a profile to edit.")
 

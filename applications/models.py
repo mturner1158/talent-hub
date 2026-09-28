@@ -10,7 +10,6 @@ STATUS_CHOICES = (
         ('withdrawn', 'Withdrawn'),
     )
 
-# Create your models here.
 class Application(models.Model):
     """
     Contains the job submission from a candidate and the status of the application
