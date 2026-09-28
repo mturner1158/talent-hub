@@ -88,7 +88,7 @@ def review_applications(request, job_slug):
 @login_required
 def update_status(request, pk):
     application = get_object_or_404(Application, pk=pk)
-
+    # confirm user is a company and jobs are owned by that company 
     if not hasattr(request.user, 'company_contact') or application.job.company != request.user.company_contact:
         raise PermissionDenied
 
@@ -99,4 +99,7 @@ def update_status(request, pk):
             application.save()
             messages.success(request, "Status updated.")
 
-    return redirect('review_applications', job_slug=application.job.slug)
+    return redirect(
+        'review_applications', 
+        job_slug=application.job.slug
+    )

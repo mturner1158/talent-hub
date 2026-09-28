@@ -9,6 +9,8 @@
         <a href="{% url 'edit_profile' %}" class="btn btn-outline-secondary">Edit profile</a>
     </div>
 
+    <!-- tiles to show active job count, number of applicants and to post a new job -->
+
     <div class="row mb-4">
         <div class="col-md-4 mb-2">
             <div class="custom-card text-center">
@@ -32,6 +34,8 @@
             </a>
         </div>
     </div>
+
+    <!-- displays cards for each job a company has submitted in the tool -->
 
     <div class="row">
         {% for job in jobs %}

@@ -7,6 +7,8 @@
     <h1>Find your dream job!</h1>
     <p>Use the tiles below to search and browse roles and select the arrows for more details</p>
 
+    <!-- search bars -->
+
     <form method="get" class="row g-2 mb-4">
         <div class="col-md-4">
             <input type="text" name="keyword" class="form-control" placeholder="Job title..." value="{{ keyword }}">
@@ -30,6 +32,9 @@
                 <i class="fa-solid fa-arrow-rotate-left"></i></a>
         </div>
     </form>
+
+    <!-- cards for each job -->
+    <!-- logic check search fields and returns 'no jobs' is nothing matches -->
 
     {% if job_list %}
     <div class="row">

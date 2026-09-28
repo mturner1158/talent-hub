@@ -2,6 +2,7 @@ from django import forms
 from django_summernote.widgets import SummernoteWidget
 from .models import Candidate
 
+# form to edit candidate profile
 class CandidateProfileForm(forms.ModelForm):
     class Meta:
         model = Candidate

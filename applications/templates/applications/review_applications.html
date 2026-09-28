@@ -4,7 +4,9 @@
 <div class="container mt-3">
     <h1>Applicants for {{ job.title }}</h1>
 
+    <!-- checks if anyone has appleid to the job -->
     {% if applications %}
+    <!-- table to display applicants -->
     <div class="table-responsive">
         <table class="table custom-table">
             <thead>
@@ -23,6 +25,7 @@
                     <td>{{ application.uk_working_status|yesno:"Yes,No" }}</td>
                     <td>{{ application.applied_on|date:"d M Y" }}</td>
                     <td>
+                        <!-- drop down selection to change status -->
                         <form method="post" action="{% url 'update_status' application.pk %}">
                             {% csrf_token %}
                             <select name="status" class="form-select form-select-sm">
@@ -70,6 +73,7 @@
     </div>
     {% endfor %}
 
+    <!-- displays if no candidates has applied -->
     {% else %}
     <p>No applications received for this job yet.</p>
     {% endif %}

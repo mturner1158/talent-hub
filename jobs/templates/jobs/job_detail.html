@@ -3,6 +3,8 @@
 
 {% block content %}
 
+<!-- back button and job title -->
+
 <div class="container">
     <div class="row">
         <div class="col-1">
@@ -13,6 +15,8 @@
         </div>
     </div>
 </div>
+
+<!-- key job details in four columns -->
 
 <div class="container">
     <div class="row key-job-details">
@@ -30,6 +34,8 @@
         </div>
     </div>
 </div>
+
+<!-- job description and apply button for users or edit & view applicants for company that posted role -->
 
 <div class="container">
     <div class="description">
@@ -75,6 +81,8 @@
         </a>
         {% endif %}
     </div>
+
+    <!-- company description -->
 
     <div id="job-detail-company-section">
         <h3>About {{ job.company.company_name }}</h3>
