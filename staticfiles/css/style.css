@@ -70,6 +70,52 @@ nav {
     color: #FFFFFF;
 }
 
+/* alert styling */
+
+/* Alert messages (Django messages framework) */
+.alert {
+    font-family: var(--primary-font);
+    color: var(--primary-text-colour);
+    border-radius: 8px;
+    border-left-width: 6px;
+    padding: 0.85rem 1.1rem;
+    font-weight: 500;
+}
+
+.alert a {
+    color: inherit;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+/* Success: pastel teal with teal accent */
+.alert-success {
+    --bs-alert-bg: var(--secondary-accent-colour);
+    --bs-alert-border-color: var(--primary-accent-colour);
+    --bs-alert-color: var(--primary-text-colour);
+}
+
+/* Info: white with teal accent */
+.alert-info {
+    --bs-alert-bg: #FFFFFF;
+    --bs-alert-border-color: var(--primary-accent-colour);
+    --bs-alert-color: var(--primary-text-colour);
+}
+
+/* Warning: muted grey with dark border */
+.alert-warning {
+    --bs-alert-bg: var(--secondary-colour);
+    --bs-alert-border-color: var(--border-colour);
+    --bs-alert-color: var(--primary-text-colour);
+}
+
+/* Error: pastel red with Talent Hub red accent */
+.alert-danger {
+    --bs-alert-bg: var(--selection-colour);
+    --bs-alert-border-color: var(--primary-colour);
+    --bs-alert-color: var(--primary-text-colour);
+}
+
 /* job cards on home page */
 
 .custom-card {
