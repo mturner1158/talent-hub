@@ -37,7 +37,7 @@ Site managers have the following goals:
 This section shows the considerations for each type of user that would use the website and the experiences they would have.
 
 ### Target Audience 
-The target audience is a user which would like to apply for a job in technology consulting or a user which would like to upload a job for the technology consultnacy. 
+The target audience is a user which would like to apply for a job in technology consulting or a user which would like to upload a job for the technology consultancy. 
 
 ### Expectations 
 Users of the site can expect:
@@ -85,7 +85,7 @@ The site will have the following pages:
 1. Job Listing page which has a paginated overview of all roles and the option to filter your search. 
 2. A job details page which will show all information available and that role 
 3. A company dashboard which will show you applications for a role you have posted 
-4. An applicant dashboard which will allow users to see how their application is progressing (DO I NEED THIS OR SHOULD I JUST USE EMAIL)
+4. An applicant dashboard which will allow users view roles they have applied for and the status of their application
 5. A log in and account registration page to allow users to sign up in either role
 
 ### Wireframes
@@ -110,6 +110,8 @@ This page shows all job listings for a company and applicants which have applied
 
 #### Applications for a specific role 
 This page shows applicants for a specific role. 
+
+<img src="./wireframes/company-job-applicants.png">
 
 #### Candidate Dashboard 
 This page shows all the roles a candidate has applied for, the status and the option to withdraw. 
@@ -137,13 +139,13 @@ The following frameworks are used in this project:
 The application is deployed using Heroku. 
 
 ## Data Model
-In this project, my application will utilise a PostgreSQL data base provided by the Code Instutute. I have created the following tables and provided a graphical representation of how they are connected. 
+In this project, my application will utilise a PostgreSQL database provided by the Code Instutute. I have created the following tables and provided a graphical representation of how they are connected. 
 
 <img src="./wireframes/data-model.png">
 
 |Table|Description|
 |:------|:-----------|
-|Users|The Users table will contain user information be created through Django authentication. |
+|Users|The Users table will contain user information created through Django authentication. |
 |Candidates|The Candidates table will contain information related to each candidate that would apply to the job application.|
 |Applications|The Applications table will contain information for which candidate has applied to which opportunity. |
 |Jobs|The Jobs table will contain information related to each job a company has posted that can be viewed by the applicants.|
@@ -158,7 +160,7 @@ Security has been considered throughout the development and deployment of this D
 * Django security features: Django's built-in protections help defend against common web vulnerabilities, including Cross-Site Request Forgery (CSRF), SQL injection, and cross-site scripting (XSS).
 * Authentication: User authentication and account management are handled using django-allauth, providing a structured and secure approach to registration, login, logout, and account management.
 * Password security: User passwords are managed through Django's built-in password hashing and authentication system rather than being stored as plain text.
-CSRF protection: Django's CSRF middleware is enabled to help prevent unauthorised requests from trusted users' browsers.
+* CSRF protection: Django's CSRF middleware is enabled to help prevent unauthorised requests from trusted users' browsers.
 * Environment variables: Sensitive configuration such as the Django SECRET_KEY and production credentials are kept outside the source code and supplied through environment variables.
 * Debug mode: DEBUG is disabled in the production deployment to avoid exposing sensitive application information.
 * Allowed hosts: Django's ALLOWED_HOSTS setting is configured for the production environment rather than allowing requests from arbitrary domains.
@@ -200,7 +202,7 @@ The home page features a header with some information, followed by multiple sear
 <img src="./wireframes/home-page.png">
 
 ### Job Details
-Once a user has selected a job card, they will be taken to a page showing the full job listing. Each job listing has a back button to take users back to the home page, the role title, key information displayed at the top and then the full job desription. Further down the page is information about the hiring company, and where provided a link to the companies website. 
+Once a user has selected a job card, they will be taken to a page showing the full job listing. Each job listing has a back button to take users back to the home page, the role title, key information displayed at the top and then the full job description. Further down the page is information about the hiring company, and where provided a link to the companies website. 
 
 The user will also have different options available depending on their authentication and role. 
 
@@ -233,7 +235,7 @@ The application list for a role is only available to users which are classified 
 <img src="./wireframes/applicant-table.png">
 
 ### Applicant Dashboard 
-The applicant dashboard is only availablto users which are classified as a candidate. The user has access to the following features: 
+The applicant dashboard is only available to users which are classified as a candidate. The user has access to the following features: 
 
 * A view of all roles the user has applied to
 * The status of the users application 
@@ -258,7 +260,7 @@ Modifying allauth's base templates, there are signup, sign in and log out pages 
 I have tested my project through a combination of manual testing of user stories, Django testing and tooling. Each section will explain how this is done. 
 
 ### User Story Testing 
-Testing was carried out against the deployed Heroku site to confirm the deployed version matches the tested development version. Each user story from the design documentation is tested individually below.
+Testing was carried out against the deployed Heroku site to confirm the deployed version matches the tested development version. Each user story from the User Experience section is tested individually below.
 
 #### User 1: Visitor
  
@@ -320,10 +322,10 @@ Testing was carried out against the deployed Heroku site to confirm the deployed
 ### Lighthouse Testing 
 I used the developer lighthouse tool testing to ensure my website is loading efficiently, is accessible, follows best practice and is optimised via search engine optimisation. The outcomes are shown below. 
 
-<img src="./wireframes/lighthouse-testing.png>
+<img src="./wireframes/lighthouse-testing.png">
 
 ### HTML
-Using the [HTML Validator](https://validator.w3.org/), I received errors for duplicate id's on links however these are generated using Django code therefore not an issue. 
+Using the [HTML Validator](https://validator.w3.org/), I only received errors for duplicate id's on links however these are generated using Django code therefore not an issue. 
 
 ### CSS
 Using the [CSS Validator](https://jigsaw.w3.org/css-validator/), I have no recorded errors and 265 warnings due to the variables not statically checked.
@@ -376,7 +378,7 @@ To take your own version of this repository, you will have to use the following 
 2. Clone the reposiotry using the green 'Code' button 
 3. Copy the repository URL to your clipboard
 4. Open your terminal and run: git clone [REPOSITORY URL] 
-5. Change int othe project directory 
+5. Change into the project directory 
 
 This should mean you have a local copy of the repository to edit. 
 
