@@ -68,6 +68,31 @@ Testing was carried out against the deployed Heroku site to confirm the deployed
 | C.5 | Broken links / navigation | Click through every nav link, footer link, and back button while logged out, as Candidate, and as Company. | No broken links or unexpected errors for any role. | Pass |  
 
 ## Responsiveness Testing
+Responsive design principles have been followed throughout this project and have been tested below. 
+
+For the home page: 
+
+<img src="./static/images/responsive-home.png">
+
+For a job details page: 
+
+<img src="./static/images/responsive-job-detail.png">
+
+For a company dashboard: 
+
+<img src="./static/images/responsive-compnay-dash.png">
+
+For a job specific dashboard: 
+
+<img src="./static/images/responsive-applied-view.png">
+
+For an applicant dashboard: 
+
+<img src="./static/images/responsive-applicant-dashboard.png">
+
+For an edit form: 
+
+<img src="./static/images/responsive-edit-form.png">
 
 ## Lighthouse Testing 
 I used the developer lighthouse tool testing to ensure my website is loading efficiently, is accessible, follows best practice and is optimised via search engine optimisation. The outcomes are shown below. 
@@ -95,6 +120,8 @@ For an applicant dashbnoard:
 For an edit form: 
 
 <img src="./static/images/lighthouse-edit-form.png">
+
+_Please note, two of the screenshots were done in incognito mode due to caching problems hence the change in background colour._
 
 ## HTML Testing
 Using the [HTML Validator](https://validator.w3.org/), I tested each page and have the following results.
