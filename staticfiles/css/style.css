@@ -54,6 +54,7 @@ nav {
 }
 
 .login-btn { 
+    display: inline-block;
     background-color: var(--primary-colour);
     color: #FFFFFF;
     border: none;
