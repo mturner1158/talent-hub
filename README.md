@@ -1,6 +1,8 @@
 # Project 3: Talent Hub
 Talent Hub is a web application which allows a company to create a profile to upload job listings and applicants to browse and apply for the uploaded jobs.
 
+<img src="./static/images/browser-frame.png">
+
 My live application can be accessed here: [Talent Hub](https://talenthub-333409c50459.herokuapp.com/)
 
 ## Table of Contents
