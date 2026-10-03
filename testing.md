@@ -74,17 +74,27 @@ I used the developer lighthouse tool testing to ensure my website is loading eff
 
 For the home page: 
 
+<img src="./static/images/lighthouse-home.png">
+
 For a job details page: 
+
+<img src="./static/images/lighthouse-job-detail.png">
 
 For a company dashboard: 
 
+<img src="./static/images/lighthouse-company-dash.png">
+
 For a job specific dashboard: 
+
+<img src="./static/images/lighthouse-applied-view.png">
 
 For an applicant dashbnoard: 
 
+<img src="./static/images/lighthouse-applicant-dash.png">
+
 For an edit form: 
 
-<img src="./static/images/lighthouse-testing.png">
+<img src="./static/images/lighthouse-edit-form.png">
 
 ## HTML Testing
 Using the [HTML Validator](https://validator.w3.org/), I tested each page and have the following results.
@@ -112,8 +122,6 @@ For an applicant dashbnoard, there are no errors:
 For an edit form, there are no errors:
 
 <img src="./static/images/html-testing-3.png">
-
-
 
 ## CSS Tetsing
 Using the [CSS Validator](https://jigsaw.w3.org/css-validator/), I have no recorded errors and no warnings. 
