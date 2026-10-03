@@ -141,7 +141,7 @@ The application is deployed using Heroku.
 ## Data Model
 In this project, my application will utilise a PostgreSQL database provided by the Code Instutute. I have created the following tables and provided a graphical representation of how they are connected. 
 
-<img src="./wireframes/data-model.png">
+<img src="./static/images/data-model.png">
 
 |Table|Description|
 |:------|:-----------|
@@ -188,18 +188,18 @@ The navigation bar is featured on all pages and aims to apply consistant styling
 * For candidates who are authenticated, they can view the job list, their applications and edit their profile. They also have the option to log out.
 * For companies, they can view the available jobs and their job dashboard. They also have the option to log out.
 
-<img src="./wireframes/nav-bar.png">
+<img src="./static/images/nav-bar.png">
 
 #### Footer
 
 The footer features links to key social media sites. 
 
-<img src="./wireframes/footer.png">
+<img src="./static/images/footer.png">
 
 ### Job List
 The home page features a header with some information, followed by multiple search fields which can filter the job cards below. Each card holds key information about a role, including title, company, location and maximum salary. There is an arrow link to see more details. 
 
-<img src="./wireframes/home-page.png">
+<img src="./static/images/home-page.png">
 
 ### Job Details
 Once a user has selected a job card, they will be taken to a page showing the full job listing. Each job listing has a back button to take users back to the home page, the role title, key information displayed at the top and then the full job description. Further down the page is information about the hiring company, and where provided a link to the companies website. 
@@ -211,8 +211,8 @@ The user will also have different options available depending on their authentic
 * If a user is authenticated as the company which owns the job listing, they will have the option to edit the role or view applications to the role
 * If a user is authenticated as a company which does not own the job listing, they will not see any buttons. 
 
-<img src="./wireframes/job-detail-1.png">
-<img src="./wireframes/job-detail-2.png">
+<img src="./static/images/job-detail-1.png">
+<img src="./static/images/job-detail-2.png">
 
 ### Company Dashboard 
 The company dashboard is only available to users which are classfied as a company. The user has access to the following features: 
@@ -222,7 +222,7 @@ The company dashboard is only available to users which are classfied as a compan
 * The option to post a new job listing 
 * Tiles for each role with the view to edit the role or view the applications to the role
 
-<img src="./wireframes/company-dashboard.png">
+<img src="./static/images/company-dashboard.png">
 
 ### Job Listing Application List
 The application list for a role is only available to users which are classified as a company. The user has access to the following features: 
@@ -232,7 +232,7 @@ The application list for a role is only available to users which are classified 
 * A status field which is a drop down that updates the status of the application 
 * A see more button per applicant which displays their full application in a modal
 
-<img src="./wireframes/applicant-table.png">
+<img src="./static/images/applicant-table.png">
 
 ### Applicant Dashboard 
 The applicant dashboard is only available to users which are classified as a candidate. The user has access to the following features: 
@@ -243,7 +243,7 @@ The applicant dashboard is only available to users which are classified as a can
 * A link to view the job listing 
 * The option to withdraw their application
 
-<img src="./wireframes/candidate-dashbaord.png">
+<img src="./static/images/candidate-dashbaord.png">
 
 ### Edit Forms
 All edit forms across the project follow a similar format, with summernote used for rich text inputs. 
@@ -251,7 +251,7 @@ All edit forms across the project follow a similar format, with summernote used 
 * Candidate users will be able to access the edit profile form to update their skills
 * Company users will be able to access the edit profile form and the edit / post a job form
 
-<img src="./wireframes/edit-form.png">
+<img src="./static/images/edit-form.png">
 
 ### Authentication 
 Modifying allauth's base templates, there are signup, sign in and log out pages matching the style of this web application.
@@ -322,7 +322,7 @@ Testing was carried out against the deployed Heroku site to confirm the deployed
 ### Lighthouse Testing 
 I used the developer lighthouse tool testing to ensure my website is loading efficiently, is accessible, follows best practice and is optimised via search engine optimisation. The outcomes are shown below. 
 
-<img src="./wireframes/lighthouse-testing.png">
+<img src="./static/images/lighthouse-testing.png">
 
 ### HTML
 Using the [HTML Validator](https://validator.w3.org/), I only received errors for duplicate id's on links however these are generated using Django code therefore not an issue. 
