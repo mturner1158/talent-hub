@@ -128,7 +128,7 @@ nav {
     font-style: italic;
 }
 
-#job-link {
+.job-link {
     color: var(--primary-colour);
 }
 
