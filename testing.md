@@ -87,19 +87,31 @@ For an edit form:
 <img src="./static/images/lighthouse-testing.png">
 
 ## HTML Testing
-Using the [HTML Validator](https://validator.w3.org/), I only received errors for duplicate id's on links however these are generated using Django code therefore not an issue. 
+Using the [HTML Validator](https://validator.w3.org/), I tested each page and have the following results.
 
-For the home page: 
+For the home page, there are no errrors:
 
-For a job details page: 
+<img src="./static/images/html-testing-1.png">
 
-For a company dashboard: 
+For a job details page, there is one error about a closing paragraph element tag however this is due to the user input in summer note which I have no control over. 
 
-For a job specific dashboard: 
+<img src="./static/images/html-testing-2.png">
 
-For an applicant dashbnoard: 
+For a company dashboard, there are no errors:
 
-For an edit form: 
+<img src="./static/images/html-testing-4.png">
+
+For a job specific dashboard, there are no errors:
+
+<img src="./static/images/html-testing-5.png">
+
+For an applicant dashbnoard, there are no errors: 
+
+<img src="./static/images/html-testing-6.png">
+
+For an edit form, there are no errors:
+
+<img src="./static/images/html-testing-3.png">
 
 
 
