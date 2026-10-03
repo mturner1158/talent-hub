@@ -35,7 +35,7 @@
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="{% if request.path == home_url %}page{% endif %}"
+            <a class="nav-link {% if request.path == home_url %}active{% endif %}" {% if request.path == home_url %}aria-current="page"{% endif %}
               href="{% url 'home' %}">Jobs</a>
           </li>
           <li class="nav-item">
@@ -43,17 +43,17 @@
           </li>
           {% if request.user.is_authenticated and request.user.candidate_profile %}
           <li>
-            <a class="nav-link" aria-current="{% if request.path == my_applications_url %}page{% endif %}"
+            <a class="nav-link {% if request.path == my_applications_url %} active {% endif %}" {% if request.path == my_applications_url %} aria-current="page" {% endif %}
               href="{% url 'my_applications' %}">My Applications</a>
           </li>
           <li>
-            <a class="nav-link" aria-current="{% if request.path == edit_candidate_profile_url %}page{% endif %}"
+            <a class="nav-link {% if request.path == edit_candidate_profile_url %} active {% endif %}" {% if request.path == edit_candidate_profile_url %} aria-current="page" {% endif %}
               href="{% url 'edit_candidate_profile' %}">Edit profile</a>
           </li>
           {% endif %}
           {% if request.user.is_authenticated and request.user.company_contact %}
           <li>
-            <a class="nav-link" aria-current="{% if request.path == company_dashboard_url %}page{% endif %}"
+            <a class="nav-link {% if request.path == company_dashboard_url %} active {% endif %}" {% if request.path == company_dashboard_url %} aria-current="page" {% endif %}
               href="{% url 'company_dashboard' %}">My Jobs</a>
           </li>
           {% endif %}
