@@ -20,16 +20,16 @@
 
 <div class="container">
     <div class="row key-job-details">
-        <div class="col-3">
+        <div class="col-6 col-md-3">
             {{ job.company.company_name }}
         </div>
-        <div class="col-3">
+        <div class="col-6 col-md-3">
             {{ job.location }}
         </div>
-        <div class="col-3">
+        <div class="col-6 col-md-3">
             {{ job.get_job_type_display }}
         </div>
-        <div class="col-3">
+        <div class="col-6 col-md-3">
             £{{ job.salary_min|intcomma }} - £{{ job.salary_max|intcomma }}
         </div>
     </div>
