@@ -69,16 +69,8 @@
         {% endif %}
 
         {% if request.user.is_authenticated and job.company == request.user.company_contact %}
-        <a href="{% url 'edit_job' job.slug %}">
-            <button type="button" class="btn login-btn">
-                Edit this job
-            </button>
-        </a>
-        <a href="{% url 'review_applications' job.slug %}">
-            <button type="button" class="btn login-btn">
-                View applicants
-            </button>
-        </a>
+        <a href="{% url 'edit_job' job.slug %}" class="btn login-btn"> Edit this job </a>
+        <a href="{% url 'review_applications' job.slug %}"> View Applicants </a>
         {% endif %}
     </div>
 
@@ -88,11 +80,8 @@
         <h3>About {{ job.company.company_name }}</h3>
         <p>{{ job.company.description|safe }}</p>
         {% if job.company.website %}
-        <p><a href="{{ job.company.website }}" target="_blank">
-                <button type="button" class="btn login-btn">
-                    View Website
-                </button>
-            </a>
+        <p>
+            <a href="{{ job.company.website }}" target="_blank" class="btn login-btn">View the website here</a>
         </p>
         {% endif %}
     </div>

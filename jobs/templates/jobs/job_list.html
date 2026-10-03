@@ -52,7 +52,7 @@
                             <p class="job-salary-card">Up to: £{{ job.salary_max|intcomma }}</p>
                         </div>
                         <div class="col-2">
-                            <p><a id="job-link" href="{% url 'job_detail' job.slug %}" class="post-link" aria-label="View details for {{ job.title }}"><i
+                            <p><a href="{% url 'job_detail' job.slug %}" class="post-link job-link" aria-label="View details for {{ job.title }}"><i
                                         class="fa-solid fa-angles-right" aria-hidden="true"></i></a></p>
                         </div>
                     </div>
