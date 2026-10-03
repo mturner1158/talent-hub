@@ -5,10 +5,10 @@ This section covers testing completed in relation to this project.
 Please use the links below to navigate to a specific section: 
 
 * [User Story Testing](#user-story-testing)
-* [Responseness Testing](#responsiveness-testing)
+* [Responsiveness Testing](#responsiveness-testing)
 * [Lighthouse Testing](#lighthouse-testing)
 * [HTML Testing](#html-testing)
-* [CSS Testing](#css-tetsing)
+* [CSS Testing](#css-testing)
 * [Django Testing](#django-testcase)
 
 ## User Story Testing 
@@ -34,7 +34,7 @@ Testing was carried out against the deployed Heroku site to confirm the deployed
 | 2.5 | As a candidate, I want to be prevented from applying to the same job twice. | Apply to the same job a second time. | Friendly message shown ("You've already applied..."); no duplicate row created; no server error. | Pass | 
 | 2.6 | As a candidate, I want to see a list of jobs I've applied to and their current status. | Visit "My Applications" after applying to one or more jobs. | All of the candidate's own applications shown, each with correct job title, company, and status. Applications belonging to other candidates are never shown. | Pass |  
 | 2.7 | As a candidate, I want to withdraw an application I no longer want to pursue. | From "My Applications," withdraw an application with status "Submitted" or "Shortlisted." | Status changes to "Withdrawn"; row remains visible (not deleted); Withdraw button no longer shown for that row. | Pass |  
-| 2.8 | As a candidate, I want clear confirmation when my application is submitted. | Submit an application. | Redirect to my applicatons dashboard | Pass |  
+| 2.8 | As a candidate, I want clear confirmation when my application is submitted. | Submit an application. | Redirect to my applications dashboard | Pass |  
 | — | *(Negative test, not a stated story but a related permission check)* | Log in as Candidate, attempt to visit `/jobs/post/` directly. | `PermissionDenied` (403) — candidates cannot post jobs. | Pass |  
  
 ### User 3: Company
@@ -95,7 +95,7 @@ For an edit form:
 <img src="./static/images/responsive-edit-form.png">
 
 ## Lighthouse Testing 
-I used the developer lighthouse tool testing to ensure my website is loading efficiently, is accessible, follows best practice and is optimised via search engine optimisation. The outcomes are shown below. 
+I used the Lighthouse developer tool testing to ensure my website is loading efficiently, is accessible, follows best practice and is optimised for search engines. The outcomes are shown below. 
 
 For the home page: 
 
@@ -113,7 +113,7 @@ For a job specific dashboard:
 
 <img src="./static/images/lighthouse-applied-view.png">
 
-For an applicant dashbnoard: 
+For an applicant dashboard: 
 
 <img src="./static/images/lighthouse-applicant-dash.png">
 
@@ -126,11 +126,11 @@ _Please note, two of the screenshots were done in incognito mode due to caching 
 ## HTML Testing
 Using the [HTML Validator](https://validator.w3.org/), I tested each page and have the following results.
 
-For the home page, there are no errrors:
+For the home page, there are no errors:
 
 <img src="./static/images/html-testing-1.png">
 
-For a job details page, there is one error about a closing paragraph element tag however this is due to the user input in summer note which I have no control over. 
+For a job details page, there is one error about a closing paragraph element tag however this is due to the user input in SummerNote which I have no control over. 
 
 <img src="./static/images/html-testing-2.png">
 
@@ -142,7 +142,7 @@ For a job specific dashboard, there are no errors:
 
 <img src="./static/images/html-testing-5.png">
 
-For an applicant dashbnoard, there are no errors: 
+For an applicant dashboard, there are no errors: 
 
 <img src="./static/images/html-testing-6.png">
 
@@ -150,7 +150,7 @@ For an edit form, there are no errors:
 
 <img src="./static/images/html-testing-3.png">
 
-## CSS Tetsing
+## CSS Testing
 Using the [CSS Validator](https://jigsaw.w3.org/css-validator/), I have no recorded errors and no warnings. 
 
 <img src="./static/images/css-testing.png">
@@ -159,9 +159,9 @@ Using the [CSS Validator](https://jigsaw.w3.org/css-validator/), I have no recor
 I have used the Django testing framework on two of the four applications in this project. 
 
 ### Jobs Testing
-The following tests have been ran and passed for the jobs application: 
+The following tests have been run and passed for the jobs application: 
 
-1. An anonmyous visitor should be redirected to login when navigating to the job posting form
+1. An anonymous visitor should be redirected to login when navigating to the job posting form
 2. A logged in candidate user is denied access to the job posting form
 3. A logged in company user can access the job posting form
 4. A logged in company user can access the edit job form for its own job listings 
@@ -170,12 +170,12 @@ The following tests have been ran and passed for the jobs application:
 7. A job marked as 'active' is displayed on the home page 
 
 ### Applications Testing
-The following tests have been ran and passed for the applications application: 
+The following tests have been run and passed for the applications application: 
 
 1. A logged in company user cannot apply to a job listing 
 2. A logged in candidate user can apply for a job 
 3. A logged in candidate user cannot apply for the same job twice 
 4. A logged in company user can view the application list for its own job 
 5. A logged in company user can only see applications for their own job listings 
-6. Withdrawing an application marks it as withdrawn, but keeps the datarow
-7. A logged in candidate user cannot withdraw another candidates application 
+6. Withdrawing an application marks it as withdrawn, but keeps the data row
+7. A logged in candidate user cannot withdraw another candidate's application 

@@ -1,5 +1,5 @@
 # Project 3: Talent Hub
-Talent Hub is a web application which allows a company to create a profile to upload job applications and applications to browse and apply for the uploaded jobs.
+Talent Hub is a web application which allows a company to create a profile to upload job listings and applicants to browse and apply for the uploaded jobs.
 
 My live application can be accessed here: [Talent Hub](https://talenthub-333409c50459.herokuapp.com/)
 
@@ -73,7 +73,7 @@ The colour theme of this site is as follows:
 |Charcoal|#3D3D3C|Primary Text Colour|
 |Grey|#8D8D8B|Border Colour|
 
-Using this [contrast evaluator](https://coolors.co/contrast-checker/3d3d3c-faf9f6), the background colour and text colour have a contrast score of 10.33 which is rated very good, and the background colour and primary colour have a contrast score of 6.15 which is acceptible due to this being used graphically rather than for text. 
+Using this [contrast evaluator](https://coolors.co/contrast-checker/3d3d3c-faf9f6), the background colour and text colour have a contrast score of 10.33 which is rated very good, and the background colour and primary colour have a contrast score of 6.15 which is acceptable due to this being used graphically rather than for text. 
 
 There are two fonts used through this site:
 
@@ -101,7 +101,7 @@ This page shows all the details of a selected job and is accessible without a lo
 
 <img src="wireframes/job-listings.png">
 
-To select apply you will be prompted to log in if not already. When logged in, a model will auto-populate with candidate information from their profile and additional questions to fill out set by the company. 
+To select apply you will be prompted to log in if not already. When logged in, a modal will allow a user to input a cover note and their working status before submitting a role.
 
 #### Company Dashboard
 This page shows all job listings for a company and applicants which have applied. 
@@ -126,20 +126,20 @@ The following languages are used in this project:
 * HTML
 * CSS
 * Python
-* Javascript
+* JavaScript
 
 The following frameworks are used in this project: 
 
 * Django 6.1.1
 * Bootstrap v5.3.8
-* Github
+* GitHub
 * Google Fonts 
 * Font Awesome 
 
 The application is deployed using Heroku. 
 
 ## Data Model
-In this project, my application will utilise a PostgreSQL database provided by the Code Instutute. I have created the following tables and provided a graphical representation of how they are connected. 
+In this project, my application will utilise a PostgreSQL database provided by the Code Institute. I have created the following tables and provided a graphical representation of how they are connected. 
 
 <img src="./static/images/data-model.png">
 
@@ -151,7 +151,7 @@ In this project, my application will utilise a PostgreSQL database provided by t
 |Jobs|The Jobs table will contain information related to each job a company has posted that can be viewed by the applicants.|
 |Companies|The Companies table will contain information related to the company that can be viewed by the applicants.|
 
-Relationships are shown by the lines joining the tables, with a 1 on each end meaining a one-to-one connection and a 1 and a cross on the end meaning a one-to-many connection.
+Relationships are shown by the lines joining the tables, with a 1 on each end meaning a one-to-one connection and a 1 and a cross on the end meaning a one-to-many connection.
 
 ## Security 
 Security has been considered throughout the development and deployment of this Django application. The project uses Django's built-in security features alongside additional configuration and authentication controls provided by django-allauth.
@@ -182,7 +182,7 @@ This section outlines key features on each page.
 Common features appear across all pages. 
 
 #### Navigation Bar
-The navigation bar is featured on all pages and aims to apply consistant styling and positon for all users, built with responsive design. The navigation bar displays different options based on a users authentication. 
+The navigation bar is featured on all pages and aims to apply consistent styling and position for all users, built with responsive design. The navigation bar displays different options based on a users authentication. 
 
 * For no authentication, users will see one option to see available jobs and the option to log in or register
 * For candidates who are authenticated, they can view the job list, their applications and edit their profile. They also have the option to log out.
@@ -215,7 +215,7 @@ The user will also have different options available depending on their authentic
 <img src="./static/images/job-detail-2.png">
 
 ### Company Dashboard 
-The company dashboard is only available to users which are classfied as a company. The user has access to the following features: 
+The company dashboard is only available to users which are classified as a company. The user has access to the following features: 
 
 * A count of active jobs 
 * The number of applications to their roles 
@@ -266,20 +266,20 @@ The following bugs occured during the design of this site:
 |:-----|:-------|:-------------|
 |1|Auth additional question was not working and adding data to the database.|Needed to update logic and fix a typo in the model|
 |2|Back button pathing from job page erroring.|All urls needed distinct names|
-|3|Could not submit a job application.|Set account as a forein key rather than a one to one field to ensure django expects a unique value|
-|4|when logged in as a company, updating the status would cause an error.|The STATUS_CHOICES variable needed to be imported into the view to be used. |
-|5|favicon not showing.|Needed to add to right static folder|
-|6|redirect on submitting duplicate job entry|Navbar was hiding the alert pop up so fixed by changing ti sticky-top bootstrap class.|
-|7|users signing up as companies are not mapping properly.|Updated Companies.save() to guard against slugify() returning an empty string, and to check for slug collisions explicitly|
+|3|Could not submit a job application.|Set account as a foreign key rather than a one to one field to ensure Django expects a unique value|
+|4|When logged in as a company, updating the status would cause an error.|The STATUS_CHOICES variable needed to be imported into the view to be used. |
+|5|Favicon not showing.|Needed to add to right static folder|
+|6|Redirect on submitting duplicate job entry|Navbar was hiding the alert pop up so fixed by changing to sticky-top bootstrap class.|
+|7|Users signing up as companies are not mapping properly.|Updated Companies.save() to guard against slugify() returning an empty string, and to check for slug collisions explicitly|
 
 ## Deployment 
-For the version control, deployment and hosting of this site I have used Github and Heroku. 
+For the version control, deployment and hosting of this site I have used GitHub and Heroku. 
 
 ### Cloning the Repository 
 To take your own version of this repository, you will have to use the following steps: 
 
-1. Select the fork buttn in the top right corner of the repository and add to your own 
-2. Clone the reposiotry using the green 'Code' button 
+1. Select the fork button in the top right corner of the repository and add to your own 
+2. Clone the repository using the green 'Code' button 
 3. Copy the repository URL to your clipboard
 4. Open your terminal and run: git clone [REPOSITORY URL] 
 5. Change into the project directory 
@@ -292,9 +292,9 @@ The live version of this site is hosted using Heroku. To deploy your own version
 1. Set up a Heroku account and log in
 2. Select 'New' in the top right and create new app
 3. Name your app and choose the correct region before selecting create app 
-4. Edit the config vars section within the settings tab with your unique SECRET_KEY, DATABASE_URL and any other unique variables you have incldued in your project
+4. Edit the config vars section within the settings tab with your unique SECRET_KEY, DATABASE_URL and any other unique variables you have includued in your project
 5. In the deploy tab, choose GitHub as your deployment method 
-6. Choose the correct repository and ensure the correct branch is selected (ususally main)
+6. Choose the correct repository and ensure the correct branch is selected (usually main)
 7. Use the 'deploy branch' button in the manual deployments section and let this run
 8. Use the open app button to launch the application
 
@@ -319,7 +319,7 @@ The following packages have been used in this project, and are also listed in re
 * whitenoise 6.12.0
 
 ## Credits and Disclaimer 
-I have the following credits and disclamer: 
+I have the following credits and disclaimer: 
 
 * My favicon is from here <a href="https://www.flaticon.com/free-icons/recruitment" title="recruitment icons">Recruitment icons created by Md Tanvirul Haque - Flaticon</a>
 * Companies and users have been used with permission (for Finyx Consulting and vaarious friends and faimly for users) or generated using Claude Sonnet 5. 
