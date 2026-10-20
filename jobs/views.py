@@ -76,6 +76,12 @@ def post_job(request):
 
 @login_required
 def edit_job(request, slug):
+    """
+    edit a job providing the job belongs to your company and you are registered as a company user.
+    """
+    if not hasattr(request.user, 'company_contact'):
+        raise PermissionDenied("Only companies can edit a job.")
+
     job = get_object_or_404(Job, slug=slug)
 
     if job.company != request.user.company_contact:
