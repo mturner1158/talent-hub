@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.http import require_POST
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
@@ -8,6 +9,7 @@ from .forms import ApplicationForm
 
 # only logged in users can see this view
 @login_required
+@require_POST
 # view to apply for a job
 def apply_to_job(request, slug):
     # confirm the user is a candidate
@@ -23,8 +25,8 @@ def apply_to_job(request, slug):
         return redirect('job_detail', slug=job.slug)
 
     # application submission
-    form = ApplicationForm(request.POST or None)
-    if request.method == 'POST' and form.is_valid():
+    form = ApplicationForm(request.POST)
+    if form.is_valid():
         application = form.save(commit=False)
         application.job = job
         application.candidate = candidate
@@ -32,11 +34,11 @@ def apply_to_job(request, slug):
         messages.success(request, "Application submitted!")
         return redirect('my_applications')
 
-    return render(
-        request, 
-        'applications/apply.html',
-        {'form': form, 'job': job}
-        )
+    # invalid form takes user back to job page 
+    for errors in form.errors.values():
+        for error in errors:
+            messages.error(request, error)
+    return redirect('job_detail', slug=job.slug)
 
 # only logged in users can see this view
 @login_required
