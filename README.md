@@ -228,8 +228,10 @@ The user will also have different options available depending on their authentic
 
 * If a user is not authenticated, there will be no options to go any further in the application. 
 * If a user is authenticated as a candidate, there will be the 'Apply' button. Selecting this button will bring up a modal which will allow the user to write a cover note, select their working status and submit their application. 
-* If a user is authenticated as the company which owns the job listing, they will have the option to edit the role or view applications to the role
+* If a user is authenticated as the company which owns the job listing, they will have the option to edit the role, view applications or delete the role
 * If a user is authenticated as a company which does not own the job listing, they will not see any buttons. 
+
+Note, when a user goes to delete their own job listing, this will include a modal pop up asking the user if they are sure before deleting the job posting. When selecting delete, this will permanently delete the job and the applications. If they wish to retain infomation relating to a past job, they can deactivate this instead. 
 
 <img src="./static/images/job-detail-1.png">
 <img src="./static/images/job-detail-2.png">
@@ -262,6 +264,8 @@ The applicant dashboard is only available to users which are classified as a can
 * The date the user applied to the job listing 
 * A link to view the job listing 
 * The option to withdraw their application
+
+Note, there was a design choice to not allow users to delete their job application. This is because if a company receives a large set of withdrawals, they may use the data to analyse what may have caused this. In a future iteration of the application, it would be considered as a request to be submitted to the company who could then delete the record. 
 
 <img src="./static/images/candidate-dashbaord.png">
 
