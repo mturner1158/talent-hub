@@ -295,6 +295,7 @@ The following bugs occured during the design of this site:
 |5|Favicon not showing.|Needed to add to right static folder|
 |6|Redirect on submitting duplicate job entry|Navbar was hiding the alert pop up so fixed by changing to sticky-top bootstrap class.|
 |7|Users signing up as companies are not mapping properly.|Updated Companies.save() to guard against slugify() returning an empty string, and to check for slug collisions explicitly|
+|8|Safe_html not rendering and erroring on testing|I had misnamed the file so this was causing the errors|
 
 ## Deployment 
 For the version control, deployment and hosting of this site I have used GitHub and Heroku. 

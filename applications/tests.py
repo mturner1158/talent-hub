@@ -34,11 +34,11 @@ class ApplicationPermissionTests(TestCase):
         self.candidate_user = User.objects.create_user(username='candidate1', password='testpass123')
         self.candidate = Candidate.objects.create(
             account=self.candidate_user,
-            first_name='Test',
+            first_name='Test1',
             last_name='Candidate',
             personal_statement='Test',
             skills='Python, Django',
-            experience='Test'
+            experience='Test1'
         )
 
         self.job = Job.objects.create(
@@ -137,6 +137,7 @@ class ApplicationPermissionTests(TestCase):
         self.assertEqual(application.status, 'withdrawn')
         self.assertTrue(Application.objects.filter(pk=application.pk).exists())
 
+
     def test_candidate_cannot_withdraw_another_candidates_application(self):
         """
         A candidate must not be able to withdraw someone else's application.
@@ -159,7 +160,7 @@ class ApplicationPermissionTests(TestCase):
         self.client.login(username='candidate1', password='testpass123')
         response = self.client.post(f'/applications/withdraw/{application.pk}/')
         self.assertEqual(response.status_code, 403)
-
+           
 
 
 class ApplicantRichTextOutputTests(TestCase):
@@ -212,3 +213,117 @@ class ApplicantRichTextOutputTests(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertNotContains(response, '<script>alert(')
+
+
+class WithdrawAndViewCrossRoleTests(TestCase):
+    """
+    Cross-role checks on withdrawing and on the applicant/company application lists.
+    """
+
+    # setup mock data 
+    def setUp(self):
+        self.company_user_a = User.objects.create_user(username='companya', password='testpass123')
+        self.company_a = Companies.objects.create(
+            owner=self.company_user_a,
+            company_name='Company A',
+            description='Test',
+            sectors='Tech'
+        )
+    
+        self.company_user_b = User.objects.create_user(username='companyb', password='testpass123')
+        self.company_b = Companies.objects.create(
+            owner=self.company_user_b,
+            company_name='Company B',
+            description='Test',
+            sectors='Tech'
+        )
+    
+        self.candidate_user_1 = User.objects.create_user(username='candidate1', password='testpass123')
+        self.candidate = Candidate.objects.create(
+            account=self.candidate_user_1,
+            first_name='Test',
+            last_name='Candidate',
+            personal_statement='Test',
+            skills='Python, Django',
+            experience='Test'
+        )
+
+        self.candidate_user_2 = User.objects.create_user(username='candidate2', password='testpass123')
+        self.other_candidate = Candidate.objects.create(
+            account=self.candidate_user_2,
+            first_name='Test',
+            last_name='Candidate',
+            personal_statement='Test',
+            skills='Python, Django',
+            experience='Test'
+        )
+            
+    
+        self.job = Job.objects.create(
+            company=self.company_a,
+            title='Junior Developer',
+            description='Test description',
+            location='York, UK',
+            salary_min=25000,
+            salary_max=30000,
+            job_type='full_time',
+            is_active=True
+        )
+
+    def make_application(self, candidate=None, **kwargs):
+        return Application.objects.create(
+            job=self.job,
+            candidate=candidate or self.candidate,
+            cover_note='Test',
+            uk_working_status=True,
+            **kwargs
+        )
+ 
+    def test_company_cannot_withdraw_an_application(self):
+        application = self.make_application()
+        self.client.login(username='companya', password="testpass123")
+        response = self.client.post(reverse('withdraw_application', args=[application.pk]))
+        self.assertEqual(response.status_code, 403)
+        application.refresh_from_db()
+        self.assertEqual(application.status, 'submitted')
+
+
+ 
+    def test_get_request_does_not_withdraw_application(self):
+        application = self.make_application()
+        self.client.login(username='candidate1', password="testpass123")
+        self.client.get(reverse('withdraw_application', args=[application.pk]))
+        application.refresh_from_db()
+        self.assertEqual(application.status, 'submitted')
+ 
+    def test_anonymous_user_cannot_withdraw(self):
+        application = self.make_application()
+        response = self.client.post(reverse('withdraw_application', args=[application.pk]))
+        self.assertEqual(response.status_code, 302)
+        application.refresh_from_db()
+        self.assertEqual(application.status, 'submitted')
+ 
+    def test_company_gets_403_on_my_applications(self):
+        self.client.login(username='companya', password="testpass123")
+        response = self.client.get(reverse('my_applications'))
+        self.assertEqual(response.status_code, 403)
+ 
+    def test_candidate_sees_only_their_own_applications(self):
+        mine = self.make_application()
+        theirs = self.make_application(candidate=self.other_candidate)
+        self.client.login(username='candidate1', password="testpass123")
+        response = self.client.get(reverse('my_applications'))
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(mine, response.context['applications'])
+        self.assertNotIn(theirs, response.context['applications'])
+ 
+    def test_candidate_gets_403_on_review_applications(self):
+        self.client.login(username='candidate1', password="testpass123")
+        response = self.client.get(reverse('review_applications', args=[self.job.slug]))
+        self.assertEqual(response.status_code, 403)
+ 
+    def test_anonymous_user_redirected_from_review_applications(self):
+        response = self.client.get(reverse('review_applications', args=[self.job.slug]))
+        self.assertEqual(response.status_code, 302)
+ 
+ 
