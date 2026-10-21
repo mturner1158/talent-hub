@@ -168,6 +168,9 @@ The following tests have been run and passed for the jobs application:
 5. A logged in company user cannot edit the job of a different company 
 6. A job marked as 'not active' is not displayed on the home page or accessible via URL
 7. A job marked as 'active' is displayed on the home page 
+8. A user cannot submit stored scripts in rich text fields
+
+<img src="./static/images/django-testing-applications.png">
 
 ### Applications Testing
 The following tests have been run and passed for the applications application: 

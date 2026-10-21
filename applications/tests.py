@@ -1,4 +1,5 @@
 from django.test import TestCase
+from django.urls import reverse
 from django.contrib.auth.models import User
 from companies.models import Companies
 from candidates.models import Candidate
@@ -158,3 +159,56 @@ class ApplicationPermissionTests(TestCase):
         self.client.login(username='candidate1', password='testpass123')
         response = self.client.post(f'/applications/withdraw/{application.pk}/')
         self.assertEqual(response.status_code, 403)
+
+
+
+class ApplicantRichTextOutputTests(TestCase):
+    """
+    Candidate profile text is shown to companies, so stored scripts must not render.
+    """
+    # setup mock data 
+    def setUp(self):
+        self.company_user_a = User.objects.create_user(username='companya', password='testpass123')
+        self.company_a = Companies.objects.create(
+            owner=self.company_user_a,
+            company_name='Company A',
+            description='Test',
+            sectors='Tech'
+        )
+    
+        self.candidate_user = User.objects.create_user(username='candidate1', password='testpass123')
+        self.candidate = Candidate.objects.create(
+            account=self.candidate_user,
+            first_name='Test',
+            last_name='Candidate',
+            personal_statement='Test',
+            skills='Python, Django',
+            experience='Test'
+        )
+    
+        self.job = Job.objects.create(
+            company=self.company_a,
+            title='Junior Developer',
+            description='Test description',
+            location='York, UK',
+            salary_min=25000,
+            salary_max=30000,
+            job_type='full_time',
+            is_active=True
+        )
+
+
+    def test_review_page_does_not_render_stored_scripts(self):
+        self.candidate.skills = '<p>Python</p><script>alert("skills")</script>'
+        self.candidate.personal_statement = '<p>Hi</p><script>alert("statement")</script>'
+        self.candidate.experience = '<p>Work</p><script>alert("experience")</script>'
+        self.candidate.save()
+
+        self.client.login(username='companya', password='testpass123')
+
+        response = self.client.get(
+            reverse('review_applications', args=[self.job.slug])
+        )
+
+        self.assertEqual(response.status_code, 200)
+        self.assertNotContains(response, '<script>alert(')
