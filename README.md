@@ -174,11 +174,11 @@ Sensitive information such as secret keys, passwords, API credentials, and datab
 
 Note, on a previous commit these were stored in the __pycache__ and .pyc files which had been commited. I undertook the following steps to ensure they had been removed. 
 
-using the following [guidance](https://www.educative.io/answers/how-to-remove-files-in-git) I removed the __pycache__ files from the repository.
+Using the following [guidance](https://www.educative.io/answers/how-to-remove-files-in-git) I removed the __pycache__ files from the repository.
 
-`git rm -r --cached __pycache__ `
-`git rm -r --cached $(git ls-files '*.pyc')`
-`git commit -m "Remove compiled Python files and ignore __pycache__"`
+`git rm -r --cached __pycache__ ` <br>
+`git rm -r --cached $(git ls-files '*.pyc')` <br>
+`git commit -m "Remove compiled Python files and ignore __pycache__"` <br>
 
 I then added in a new database instance and ran migrations again. 
 
