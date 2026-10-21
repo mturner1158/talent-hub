@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.http import require_POST
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
@@ -100,3 +101,19 @@ def edit_job(request, slug):
         {'form': form, 
          'job': job}
     )
+
+@login_required
+@require_POST
+def delete_job(request, slug):
+    """
+    Allows a company to delete their own job and no one elses
+    """
+    if not hasattr(request.user, 'company_contact'):
+        raise PermissionDenied("Only companies can delete a job.")
+    job = get_object_or_404(Job, slug=slug)
+    if job.company != request.user.company_contact:
+        raise PermissionDenied("You can only delete your own job listings.")
+    title = job.title
+    job.delete()
+    messages.success(request, f'"{title}" and its applications were deleted.')
+    return redirect('company_dashboard')

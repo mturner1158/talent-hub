@@ -6,4 +6,5 @@ urlpatterns = [
     path('post/', views.post_job, name='post_job'), # url to post a job
     path('<slug:slug>/edit/', views.edit_job, name='edit_job'), # url to a specific job to edit
     path('<slug:slug>/', views.job_detail, name='job_detail'), # url to a specific posted job
+    path("<slug:slug>/delete/", views.delete_job, name="delete_job"), #url to delete a specific job
 ]

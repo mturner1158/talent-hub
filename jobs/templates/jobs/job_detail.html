@@ -45,7 +45,8 @@
     <div>
 
         {% if request.user.is_authenticated and request.user.candidate_profile %}
-        <button type="button" class="btn login-btn apply-submit-btn" data-bs-toggle="modal" data-bs-target="#applyModal">
+        <button type="button" class="btn login-btn apply-submit-btn" data-bs-toggle="modal"
+            data-bs-target="#applyModal">
             Apply
         </button>
 
@@ -69,8 +70,39 @@
         {% endif %}
 
         {% if request.user.is_authenticated and job.company == request.user.company_contact %}
+        <!-- button to edit job -->
         <a href="{% url 'edit_job' job.slug %}" class="btn login-btn"> Edit this job </a>
-        <a href="{% url 'review_applications' job.slug %}"> View Applicants </a>
+        <!-- button to view applicaitons -->
+        <a href="{% url 'review_applications' job.slug %}" class="btn login-btn"> View Applicants </a>
+        <!-- button to launch a model to make sure comapny wants to delte a role -->
+        <button type="button" class="btn login-btn" data-bs-toggle="modal"
+            data-bs-target="#deleteJobModal-{{ job.slug }}">
+            Delete Job
+        </button>
+
+        <div class="modal fade" id="deleteJobModal-{{ job.slug }}" tabindex="-1"
+            aria-labelledby="deleteJobLabel-{{ job.slug }}" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteJobLabel-{{ job.slug }}">Delete this job?</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to delete <strong>{{ job.title }}</strong>?</p>
+                        <p class="mb-0">This will also permanently delete all applications to it and cannot be undone.
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <form method="post" action="{% url 'delete_job' job.slug %}" class="d-inline">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger">Yes, delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         {% endif %}
     </div>
 
