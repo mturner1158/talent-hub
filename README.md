@@ -265,7 +265,7 @@ The applicant dashboard is only available to users which are classified as a can
 * A link to view the job listing 
 * The option to withdraw their application
 
-Note, there was a design choice to not allow users to delete their job application. This is because if a company receives a large set of withdrawals, they may use the data to analyse what may have caused this. In a future iteration of the application, it would be considered as a request to be submitted to the company who could then delete the record. 
+Note, there was a design choice to not allow candidate users to delete their job application. A candidate user can withdraw their application which means they would no longer be considered for a role, but the data of their application would be retained. This is because if a company receives a large set of withdrawals, they may use the data to analyse what may have caused this. In a future iteration of the application, it would be considered as a request to be submitted to the company who could then delete the record, supporting any data-privacy requests. 
 
 <img src="./static/images/candidate-dashbaord.png">
 

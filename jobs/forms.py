@@ -1,5 +1,6 @@
 from django import forms
 from django_summernote.widgets import SummernoteWidget
+from talenthub.sanitise import clean_html
 from .models import Job
 
 # post a job form
@@ -12,6 +13,9 @@ class JobForm(forms.ModelForm):
             'description': SummernoteWidget(),
         }
 
+    def clean_description(self):
+        return clean_html(self.cleaned_data['description'])
+
 # edit a job form
 
 class JobEditForm(forms.ModelForm):
@@ -21,3 +25,6 @@ class JobEditForm(forms.ModelForm):
         widgets = {
             'description': SummernoteWidget(),
         }
+
+    def clean_description(self):
+        return clean_html(self.cleaned_data['description'])

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load humanize %}
+{% load safe_html %}
 
 {% block content %}
 
@@ -40,7 +41,7 @@
 <div class="container">
     <div class="description">
         <h2 class="h4">The job has the following requirements: </h2>
-        {{ job.description|safe}}
+        {{ job.description|clean_html}}
     </div>
     <div>
 
@@ -110,7 +111,7 @@
 
     <div id="job-detail-company-section">
         <h3>About {{ job.company.company_name }}</h3>
-        <p>{{ job.company.description|safe }}</p>
+        <p>{{ job.company.description|clean_html }}</p>
         {% if job.company.website %}
         <p>
             <a href="{{ job.company.website }}" target="_blank" class="btn login-btn">View the website here</a>
