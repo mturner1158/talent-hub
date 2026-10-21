@@ -172,6 +172,24 @@ A .gitignore file is included to prevent sensitive or unnecessary files from bei
 
 Sensitive information such as secret keys, passwords, API credentials, and database credentials is not stored directly in the repository.
 
+Note, on a previous commit these were stored in the __pycache__ and .pyc files which had been commited. I undertook the following steps to ensure they had been removed. 
+
+using the following [guidance](https://www.educative.io/answers/how-to-remove-files-in-git) I removed the __pycache__ files from the repository.
+
+`git rm -r --cached __pycache__ `
+`git rm -r --cached $(git ls-files '*.pyc')`
+`git commit -m "Remove compiled Python files and ignore __pycache__"`
+
+I then added in a new database instance and ran migrations again. 
+
+After this, I used the git-filter-repo tool ([link here](https://www.git-tower.com/learn/git/faq/git-filter-repo)) to remove any previous entries for __pychace and .pyc files in my previous commits by first using a clone and merging the changes. 
+
+I have verified that this no longer has history for by using the following bash command
+
+`git log --all --oneline -- "*__pycache__*" "*.pyc" env.py`
+
+which returned nothing in my terminal meaning they no longer appear in my commit history.
+
 ### Heroku Deployment
 The application is deployed using Heroku. Production configuration and sensitive values are managed using Heroku Config Vars rather than being hard-coded into the application.
 
@@ -324,4 +342,4 @@ The following packages have been used in this project, and are also listed in re
 I have the following credits and disclaimer: 
 
 * My favicon is from here <a href="https://www.flaticon.com/free-icons/recruitment" title="recruitment icons">Recruitment icons created by Md Tanvirul Haque - Flaticon</a>
-* Companies and users have been used with permission (for Finyx Consulting and vaarious friends and faimly for users) or generated using Claude Sonnet 5. 
+* Companies and users have been used with permission (for Finyx Consulting and various friends and family for users) or generated using Claude Sonnet 5. 
