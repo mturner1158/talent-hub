@@ -158,6 +158,11 @@ SUMMERNOTE_CONFIG = {
     },
 }
 
+
+# summernote migration modules 
+
+MIGRATION_MODULES = {"django_summernote": "talenthub.summernote_migrations"}
+
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
 
