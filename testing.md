@@ -168,16 +168,7 @@ The following tests have been run and passed for the jobs application:
 5. A logged in company user cannot edit the job of a different company 
 6. A job marked as 'not active' is not displayed on the home page or accessible via URL
 7. A job marked as 'active' is displayed on the home page 
-8. A user cannot submit stored scripts in rich text fields in the application model
-9. A logged in company user cannot withdraw an applicaiton
-10. A get request does not withdraw an applicaiton 
-11. An anonymous visitor cannot withdraw an application 
-12. A logged in company user cannot view the 'My Applications' page 
-13. A logged in candidate user only sees their applicaitons 
-14. A logged in candidate user cannot view the 'Review Applications' page 
-15. An anonymous vistor is redirected to login when navigating to the 'Review Applications' apge
 
-<img src="./static/images/django-testing-applications.png">
 
 ### Applications Testing
 The following tests have been run and passed for the applications application: 
@@ -189,3 +180,13 @@ The following tests have been run and passed for the applications application:
 5. A logged in company user can only see applications for their own job listings 
 6. Withdrawing an application marks it as withdrawn, but keeps the data row
 7. A logged in candidate user cannot withdraw another candidate's application 
+8. A user cannot submit stored scripts in rich text fields in the application model
+9. A logged in company user cannot withdraw an applicaiton
+10. A get request does not withdraw an applicaiton 
+11. An anonymous visitor cannot withdraw an application 
+12. A logged in company user cannot view the 'My Applications' page 
+13. A logged in candidate user only sees their applicaitons 
+14. A logged in candidate user cannot view the 'Review Applications' page 
+15. An anonymous vistor is redirected to login when navigating to the 'Review Applications' apge
+
+<img src="./static/images/django-testing-applications.png">
