@@ -166,9 +166,23 @@ The following tests have been run and passed for the jobs application:
 3. A logged in company user can access the job posting form
 4. A logged in company user can access the edit job form for its own job listings 
 5. A logged in company user cannot edit the job of a different company 
-6. A job marked as 'not active' is not displayed on the home page or accessible via URL
+6. A job marked as 'not active' is not accessible via URL
 7. A job marked as 'active' is displayed on the home page 
+8. A job marked as 'not active' is not appear on the home page 
+9. An anonymous visitor should be redirected to login when navigating to the job edit form 
+10. A logged in candidate user is denied access to the job edit form 
+11. A logged in candidate user cannot edit a job by accessing the edit form directly 
+12. A logged in company user accessing another company's job cannot edit a job by accessing the edit form directly 
+13. A logged in company user can edit their own job 
+14. A logged in company user can deactive a job and the data is recorded
+15. An anonymous visitor should be redirected to login when navigating to job deletion modal
+16. A logged in candidate user is denied access to the job deletion modal
+17. A logged in company user cannot delete another company's job 
+18. A user visiting the delete url cannot delete a job 
+19. A logged in company user can delete their own job and the associated applications 
+20. A logged in company user cannot delete a job that doesn't exist
 
+<img src="./static/images/django-testing-jobs.png">
 
 ### Applications Testing
 The following tests have been run and passed for the applications application: 
