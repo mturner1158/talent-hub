@@ -35,7 +35,7 @@ Testing was carried out against the deployed Heroku site to confirm the deployed
 | 2.6 | As a candidate, I want to see a list of jobs I've applied to and their current status. | Visit "My Applications" after applying to one or more jobs. | All of the candidate's own applications shown, each with correct job title, company, and status. Applications belonging to other candidates are never shown. | Pass |  
 | 2.7 | As a candidate, I want to withdraw an application I no longer want to pursue. | From "My Applications," withdraw an application with status "Submitted" or "Shortlisted." | Status changes to "Withdrawn"; row remains visible (not deleted); Withdraw button no longer shown for that row. | Pass |  
 | 2.8 | As a candidate, I want clear confirmation when my application is submitted. | Submit an application. | Redirect to my applications dashboard | Pass |  
-| — | *(Negative test, not a stated story but a related permission check)* | Log in as Candidate, attempt to visit `/jobs/post/` directly. | `PermissionDenied` (403) — candidates cannot post jobs. | Pass |  
+| — | *(Negative test, not a stated story but a related permission check)* | Log in as Candidate, attempt to visit `/post/` directly. | `PermissionDenied` (403) — candidates cannot post jobs. | Pass |  
  
 ### User 3: Company
  
@@ -64,7 +64,7 @@ Testing was carried out against the deployed Heroku site to confirm the deployed
 | C.1 | Responsive design | View job list, job detail, dashboard, and application review pages at mobile, tablet, and desktop widths. | Layout adapts correctly at each breakpoint; no horizontal scrolling or broken layout. | Pass | 
 | C.2 | Deployed vs dev parity | Repeat key stories above (1.1–3.7) against the live Heroku URL. | Deployed site behaves identically to local development version. | Pass |  
 | C.3 | Security — DEBUG | Check Heroku config vars. | `DEBUG=False` on the deployed app. | Pass |  
-| C.4 | Security — secrets | Review `.gitignore` and git history. | No `SECRET_KEY`, passwords, or `.env` contents committed to the repository. | Pass |  
+| C.4 | Security — secrets | Review `.gitignore` and git history. | No `SECRET_KEY`, passwords, or `.env` contents committed to the repository. | Updated and now passes |  
 | C.5 | Broken links / navigation | Click through every nav link, footer link, and back button while logged out, as Candidate, and as Company. | No broken links or unexpected errors for any role. | Pass |  
 
 ## Responsiveness Testing
