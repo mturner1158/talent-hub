@@ -168,13 +168,13 @@ The following tests have been run and passed for the jobs application:
 5. A logged in company user cannot edit the job of a different company 
 6. A job marked as 'not active' is not accessible via URL
 7. A job marked as 'active' is displayed on the home page 
-8. A job marked as 'not active' is not appear on the home page 
+8. A job marked as 'not active' is not appearing on the home page 
 9. An anonymous visitor should be redirected to login when navigating to the job edit form 
 10. A logged in candidate user is denied access to the job edit form 
 11. A logged in candidate user cannot edit a job by accessing the edit form directly 
 12. A logged in company user accessing another company's job cannot edit a job by accessing the edit form directly 
 13. A logged in company user can edit their own job 
-14. A logged in company user can deactive a job and the data is recorded
+14. A logged in company user can deactivate a job and the data is recorded
 15. An anonymous visitor should be redirected to login when navigating to job deletion modal
 16. A logged in candidate user is denied access to the job deletion modal
 17. A logged in company user cannot delete another company's job 
@@ -195,12 +195,12 @@ The following tests have been run and passed for the applications application:
 6. Withdrawing an application marks it as withdrawn, but keeps the data row
 7. A logged in candidate user cannot withdraw another candidate's application 
 8. A user cannot submit stored scripts in rich text fields in the application model
-9. A logged in company user cannot withdraw an applicaiton
-10. A get request does not withdraw an applicaiton 
+9. A logged in company user cannot withdraw an application
+10. A get request does not withdraw an application 
 11. An anonymous visitor cannot withdraw an application 
 12. A logged in company user cannot view the 'My Applications' page 
-13. A logged in candidate user only sees their applicaitons 
+13. A logged in candidate user only sees their applications 
 14. A logged in candidate user cannot view the 'Review Applications' page 
-15. An anonymous vistor is redirected to login when navigating to the 'Review Applications' apge
+15. An anonymous vistor is redirected to login when navigating to the 'Review Applications' page
 
 <img src="./static/images/django-testing-applications.png">
