@@ -1,5 +1,3 @@
-
-
 /* google font import */
 @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
@@ -11,7 +9,7 @@
     --primary-accent-colour: #009098; /* teal */
     --secondary-accent-colouor: #99D3D6; /* Pastel Teal */
     --selection-colour: #FFD5D5; /* pastel Talent Hub Red */
-    --primary-background-colour: #FAF9F6; /* Off White*/ 
+    --primary-background-colour: #FAF9F6; /* Off White*/
     --primary-text-colour: #3D3D3C; /* Charcol */
     --border-colour: #8D8D8B; /* Grey */
 }
@@ -53,7 +51,7 @@ nav {
     font-size: x-large;
 }
 
-.login-btn { 
+.login-btn {
     display: inline-block;
     background-color: var(--primary-colour);
     color: #FFFFFF;

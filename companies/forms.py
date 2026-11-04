@@ -5,6 +5,7 @@ from .models import Companies
 
 # form to edit company profile
 
+
 class CompanyProfileForm(forms.ModelForm):
     class Meta:
         model = Companies

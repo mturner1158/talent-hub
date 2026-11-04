@@ -1,6 +1,7 @@
 import bleach
 
-ALLOWED_TAGS = ["p", "br", "strong", "b", "em", "i", "u", "ul", "ol", "li", "h3", "h4", "a"]
+ALLOWED_TAGS = ["p", "br", "strong", "b", "em", "i", "u", "ul",
+                "ol", "li", "h3", "h4", "a"]
 ALLOWED_ATTRS = {"a": ["href", "title"]}
 ALLOWED_PROTOCOLS = ["http", "https", "mailto"]
 

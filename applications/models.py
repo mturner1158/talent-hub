@@ -10,15 +10,20 @@ STATUS_CHOICES = (
         ('withdrawn', 'Withdrawn'),
     )
 
+
 class Application(models.Model):
     """
-    Contains the job submission from a candidate and the status of the application
+    Contains the job submission
+    from a candidate and the status of the application
     """
-    job = models.ForeignKey(Job, on_delete=models.CASCADE, related_name='applications')
-    candidate = models.ForeignKey(Candidate, on_delete=models.CASCADE, related_name='applications')
+    job = models.ForeignKey(
+        Job, on_delete=models.CASCADE, related_name='applications')
+    candidate = models.ForeignKey(
+        Candidate, on_delete=models.CASCADE, related_name='applications')
     cover_note = models.TextField()
     uk_working_status = models.BooleanField(default=True)
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='submitted')
+    status = models.CharField(
+        max_length=20, choices=STATUS_CHOICES, default='submitted')
     applied_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
 

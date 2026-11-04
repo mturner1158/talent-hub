@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import CandidateProfileForm
 
+
 # requires user to be logged in
 @login_required
 # allows a user to edit their profile with new details
@@ -21,7 +22,7 @@ def edit_profile(request):
         return redirect('my_applications')
 
     return render(
-        request, 
-        'candidates/edit_profile.html', 
+        request,
+        'candidates/edit_profile.html',
         {'form': form}
         )

@@ -7,13 +7,14 @@ from jobs.models import Job
 from .models import Application, STATUS_CHOICES
 from .forms import ApplicationForm
 
+
 # only logged in users can see this view
 @login_required
 @require_POST
 # view to apply for a job
 def apply_to_job(request, slug):
     # confirm the user is a candidate
-    if not hasattr(request.user, 'candidate_profile'): 
+    if not hasattr(request.user, 'candidate_profile'):
         raise PermissionDenied("Only candidates can apply.")
 
     job = get_object_or_404(Job, slug=slug, is_active=True)
@@ -34,11 +35,12 @@ def apply_to_job(request, slug):
         messages.success(request, "Application submitted!")
         return redirect('my_applications')
 
-    # invalid form takes user back to job page 
+    # invalid form takes user back to job page
     for errors in form.errors.values():
         for error in errors:
             messages.error(request, error)
     return redirect('job_detail', slug=job.slug)
+
 
 # only logged in users can see this view
 @login_required
@@ -47,8 +49,14 @@ def my_applications(request):
     # confirm the user is a candidate
     if not hasattr(request.user, 'candidate_profile'):
         raise PermissionDenied("Only candidates have an applications list.")
-    applications = Application.objects.filter(candidate=request.user.candidate_profile)
-    return render(request, 'applications/my_applications.html', {'applications': applications})
+    applications = Application.objects.filter(
+        candidate=request.user.candidate_profile
+        )
+    return render(
+        request,
+        'applications/my_applications.html',
+        {'applications': applications}
+    )
 
 
 # only logged in users can see this view
@@ -57,7 +65,10 @@ def my_applications(request):
 def withdraw_application(request, pk):
     application = get_object_or_404(Application, pk=pk)
     # confirm the user is a candidate and see their own applications
-    if not hasattr(request.user, 'candidate_profile') or application.candidate != request.user.candidate_profile:
+    if (
+        not hasattr(request.user, 'candidate_profile')
+        or application.candidate != request.user.candidate_profile
+    ):
         raise PermissionDenied("You can only withdraw your own applications.")
 
     if request.method == 'POST':
@@ -74,24 +85,33 @@ def withdraw_application(request, pk):
 def review_applications(request, job_slug):
     job = get_object_or_404(Job, slug=job_slug)
     # confirm user is a company and jobs are owned by that company
-    if not hasattr(request.user, 'company_contact') or job.company != request.user.company_contact:
-        raise PermissionDenied("You can only view applicants for your own jobs.")
+    if (
+        not hasattr(request.user, 'company_contact')
+        or job.company != request.user.company_contact
+    ):
+        raise PermissionDenied(
+            "You can only view applicants for your own jobs."
+            )
 
     applications = job.applications.all()
     return render(
-        request, 
-        'applications/review_applications.html', 
-        {'job': job, 
+        request,
+        'applications/review_applications.html',
+        {'job': job,
          'applications': applications,
          'status_choices': Application._meta.get_field('status').choices}
         )
+
 
 # only logged in users can see this view
 @login_required
 def update_status(request, pk):
     application = get_object_or_404(Application, pk=pk)
-    # confirm user is a company and jobs are owned by that company 
-    if not hasattr(request.user, 'company_contact') or application.job.company != request.user.company_contact:
+    # confirm user is a company and jobs are owned by that company
+    if (
+        not hasattr(request.user, 'company_contact')
+        or application.job.company != request.user.company_contact
+    ):
         raise PermissionDenied
 
     if request.method == 'POST':
@@ -102,6 +122,6 @@ def update_status(request, pk):
             messages.success(request, "Status updated.")
 
     return redirect(
-        'review_applications', 
+        'review_applications',
         job_slug=application.job.slug
     )

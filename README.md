@@ -20,28 +20,28 @@ My live application can be accessed here: [Talent Hub](https://talenthub-333409c
 - [Code from External Sources](#code-from-external-sources)
 - [Credits & Disclaimer](#credits-and-disclaimer)
 
-## Project Goals 
-This web application will allow users to upload or view job applications that are posted to the site. A user can sign up as a company or a candidate and then use the features. 
+## Project Goals
+This web application will allow users to upload or view job applications that are posted to the site. A user can sign up as a company or a candidate and then use the features.
 
 ### User Goals
-Users have the following goals: 
-* Browse uploaded jobs 
+Users have the following goals:
+* Browse uploaded jobs
 * Upload a new job
-* Submit an application 
-* View the applications 
+* Submit an application
+* View the applications
 
 ### Site Goals
-Site managers have the following goals: 
-* View which jobs are being posted 
-* Maintain a database of companies 
+Site managers have the following goals:
+* View which jobs are being posted
+* Maintain a database of companies
 
 ## User Experience
 This section shows the considerations for each type of user that would use the website and the experiences they would have.
 
-### Target Audience 
-The target audience is a user which would like to apply for a job in technology consulting or a user which would like to upload a job for the technology consultancy. 
+### Target Audience
+The target audience is a user which would like to apply for a job in technology consulting or a user which would like to upload a job for the technology consultancy.
 
-### Expectations 
+### Expectations
 Users of the site can expect:
 * Easy to use navigation
 * Clear layout
@@ -49,7 +49,7 @@ Users of the site can expect:
 * Responsiveness to view the site on any device
 
 ### User Stories
-The following users and their user stories have been considered: 
+The following users and their user stories have been considered:
 
 |User ID|User|Goal|Stories|
 |:-----|:-------|:-------------|:-------|
@@ -75,73 +75,73 @@ The colour theme of this site is as follows:
 |Charcoal|#3D3D3C|Primary Text Colour|
 |Grey|#8D8D8B|Border Colour|
 
-Using this [contrast evaluator](https://coolors.co/contrast-checker/3d3d3c-faf9f6), the background colour and text colour have a contrast score of 10.33 which is rated very good, and the background colour and primary colour have a contrast score of 6.15 which is acceptable due to this being used graphically rather than for text. 
+Using this [contrast evaluator](https://coolors.co/contrast-checker/3d3d3c-faf9f6), the background colour and text colour have a contrast score of 10.33 which is rated very good, and the background colour and primary colour have a contrast score of 6.15 which is acceptable due to this being used graphically rather than for text.
 
 There are two fonts used through this site:
 
-1. Hanken Grotesk will be used for headers and key text. 
+1. Hanken Grotesk will be used for headers and key text.
 2. Inter will be used for blocks of text and information.
 
-The site will have the following pages: 
+The site will have the following pages:
 
-1. Job Listing page which has a paginated overview of all roles and the option to filter your search. 
-2. A job details page which will show all information available and that role 
-3. A company dashboard which will show you applications for a role you have posted 
+1. Job Listing page which has a paginated overview of all roles and the option to filter your search.
+2. A job details page which will show all information available and that role
+3. A company dashboard which will show you applications for a role you have posted
 4. An applicant dashboard which will allow users view roles they have applied for and the status of their application
 5. A log in and account registration page to allow users to sign up in either role
 
 ### Wireframes
-This section shows the wireframes for each page created in this web application across mobile, tablet and desktop screens. 
+This section shows the wireframes for each page created in this web application across mobile, tablet and desktop screens.
 
-#### Home Page 
-This page shows all job listings and is accessible without a log in. 
+#### Home Page
+This page shows all job listings and is accessible without a log in.
 
 <img src="wireframes/home.png">
 
-#### Job Listing 
-This page shows all the details of a selected job and is accessible without a log in. 
+#### Job Listing
+This page shows all the details of a selected job and is accessible without a log in.
 
 <img src="wireframes/job-listings.png">
 
 To select apply you will be prompted to log in if not already. When logged in, a modal will allow a user to input a cover note and their working status before submitting a role.
 
 #### Company Dashboard
-This page shows all job listings for a company and applicants which have applied. 
+This page shows all job listings for a company and applicants which have applied.
 
 <img src="wireframes/company-page.png">
 
-#### Applications for a specific role 
-This page shows applicants for a specific role. 
+#### Applications for a specific role
+This page shows applicants for a specific role.
 
 <img src="./wireframes/company-job-applicants.png">
 
-#### Candidate Dashboard 
-This page shows all the roles a candidate has applied for, the status and the option to withdraw. 
+#### Candidate Dashboard
+This page shows all the roles a candidate has applied for, the status and the option to withdraw.
 
 <img src="wireframes/candidate-page.png">
 
 ## Frameworks & Languages
-This section highlights all the languages and frameworks used in this project. 
+This section highlights all the languages and frameworks used in this project.
 
-The following languages are used in this project: 
+The following languages are used in this project:
 
 * HTML
 * CSS
 * Python
 * JavaScript
 
-The following frameworks are used in this project: 
+The following frameworks are used in this project:
 
 * Django 6.1.1
 * Bootstrap v5.3.8
 * GitHub
-* Google Fonts 
-* Font Awesome 
+* Google Fonts
+* Font Awesome
 
-The application is deployed using Heroku. 
+The application is deployed using Heroku.
 
 ## Data Model
-In this project, my application will utilise a PostgreSQL database provided by the Code Institute. I have created the following tables and provided a graphical representation of how they are connected. 
+In this project, my application will utilise a PostgreSQL database provided by the Code Institute. I have created the following tables and provided a graphical representation of how they are connected.
 
 <img src="./static/images/data-model.png">
 
@@ -155,7 +155,7 @@ In this project, my application will utilise a PostgreSQL database provided by t
 
 Relationships are shown by the lines joining the tables, with a 1 on each end meaning a one-to-one connection and a 1 and a cross on the end meaning a one-to-many connection.
 
-## Security 
+## Security
 Security has been considered throughout the development and deployment of this Django application. The project uses Django's built-in security features alongside additional configuration and authentication controls provided by django-allauth.
 
 ### Application Security
@@ -172,7 +172,7 @@ A .gitignore file is included to prevent sensitive or unnecessary files from bei
 
 Sensitive information such as secret keys, passwords, API credentials, and database credentials is not stored directly in the repository.
 
-Note, on a previous commit these were stored in the __pycache__ and .pyc files which had been commited. I undertook the following steps to ensure they had been removed. 
+Note, on a previous commit these were stored in the __pycache__ and .pyc files which had been commited. I undertook the following steps to ensure they had been removed.
 
 Using the following [guidance](https://www.educative.io/answers/how-to-remove-files-in-git) I removed the __pycache__ files from the repository.
 
@@ -180,9 +180,9 @@ Using the following [guidance](https://www.educative.io/answers/how-to-remove-fi
 `git rm -r --cached $(git ls-files '*.pyc')` <br>
 `git commit -m "Remove compiled Python files and ignore __pycache__"` <br>
 
-I then added in a new database instance and ran migrations again. 
+I then added in a new database instance and ran migrations again.
 
-After this, I used the git-filter-repo tool ([link here](https://www.git-tower.com/learn/git/faq/git-filter-repo)) to remove any previous entries for __pychace and .pyc files in my previous commits by first using a clone and merging the changes. 
+After this, I used the git-filter-repo tool ([link here](https://www.git-tower.com/learn/git/faq/git-filter-repo)) to remove any previous entries for __pychace and .pyc files in my previous commits by first using a clone and merging the changes.
 
 I have verified that this no longer has history for by using the following bash command
 
@@ -195,14 +195,14 @@ The application is deployed using Heroku. Production configuration and sensitive
 
 The production deployment is configured separately from local development, with security-related Django settings applied through environment variables where appropriate.
 
-## Features 
-This section outlines key features on each page. 
+## Features
+This section outlines key features on each page.
 
-### Common Features 
-Common features appear across all pages. 
+### Common Features
+Common features appear across all pages.
 
 #### Navigation Bar
-The navigation bar is featured on all pages and aims to apply consistent styling and position for all users, built with responsive design. The navigation bar displays different options based on a users authentication. 
+The navigation bar is featured on all pages and aims to apply consistent styling and position for all users, built with responsive design. The navigation bar displays different options based on a users authentication.
 
 * For no authentication, users will see one option to see available jobs and the option to log in or register
 * For candidates who are authenticated, they can view the job list, their applications and edit their profile. They also have the option to log out.
@@ -212,79 +212,79 @@ The navigation bar is featured on all pages and aims to apply consistent styling
 
 #### Footer
 
-The footer features links to key social media sites. 
+The footer features links to key social media sites.
 
 <img src="./static/images/footer.png">
 
 ### Job List
-The home page features a header with some information, followed by multiple search fields which can filter the job cards below. Each card holds key information about a role, including title, company, location and maximum salary. There is an arrow link to see more details. 
+The home page features a header with some information, followed by multiple search fields which can filter the job cards below. Each card holds key information about a role, including title, company, location and maximum salary. There is an arrow link to see more details.
 
 <img src="./static/images/home-page.png">
 
 ### Job Details
-Once a user has selected a job card, they will be taken to a page showing the full job listing. Each job listing has a back button to take users back to the home page, the role title, key information displayed at the top and then the full job description. Further down the page is information about the hiring company, and where provided a link to the companies website. 
+Once a user has selected a job card, they will be taken to a page showing the full job listing. Each job listing has a back button to take users back to the home page, the role title, key information displayed at the top and then the full job description. Further down the page is information about the hiring company, and where provided a link to the companies website.
 
-The user will also have different options available depending on their authentication and role. 
+The user will also have different options available depending on their authentication and role.
 
-* If a user is not authenticated, there will be no options to go any further in the application. 
-* If a user is authenticated as a candidate, there will be the 'Apply' button. Selecting this button will bring up a modal which will allow the user to write a cover note, select their working status and submit their application. 
+* If a user is not authenticated, there will be no options to go any further in the application.
+* If a user is authenticated as a candidate, there will be the 'Apply' button. Selecting this button will bring up a modal which will allow the user to write a cover note, select their working status and submit their application.
 * If a user is authenticated as the company which owns the job listing, they will have the option to edit the role, view applications or delete the role
-* If a user is authenticated as a company which does not own the job listing, they will not see any buttons. 
+* If a user is authenticated as a company which does not own the job listing, they will not see any buttons.
 
-Note, when a user goes to delete their own job listing, this will include a modal pop up asking the user if they are sure before deleting the job posting. When selecting delete, this will permanently delete the job and the applications. If they wish to retain infomation relating to a past job, they can deactivate this instead. 
+Note, when a user goes to delete their own job listing, this will include a modal pop up asking the user if they are sure before deleting the job posting. When selecting delete, this will permanently delete the job and the applications. If they wish to retain infomation relating to a past job, they can deactivate this instead.
 
 <img src="./static/images/job-detail-1.png">
 <img src="./static/images/job-detail-2.png">
 
-### Company Dashboard 
-The company dashboard is only available to users which are classified as a company. The user has access to the following features: 
+### Company Dashboard
+The company dashboard is only available to users which are classified as a company. The user has access to the following features:
 
-* A count of active jobs 
-* The number of applications to their roles 
-* The option to post a new job listing 
+* A count of active jobs
+* The number of applications to their roles
+* The option to post a new job listing
 * Tiles for each role with the view to edit the role or view the applications to the role
 
 <img src="./static/images/company-dashboard.png">
 
 ### Job Listing Application List
-The application list for a role is only available to users which are classified as a company. The user has access to the following features: 
+The application list for a role is only available to users which are classified as a company. The user has access to the following features:
 
-* A list of applicants to the role 
+* A list of applicants to the role
 * Further details such as their working status and the date they applied on
-* A status field which is a drop down that updates the status of the application 
+* A status field which is a drop down that updates the status of the application
 * A see more button per applicant which displays their full application in a modal
 
 <img src="./static/images/applicant-table.png">
 
-### Applicant Dashboard 
-The applicant dashboard is only available to users which are classified as a candidate. The user has access to the following features: 
+### Applicant Dashboard
+The applicant dashboard is only available to users which are classified as a candidate. The user has access to the following features:
 
 * A view of all roles the user has applied to
-* The status of the users application 
-* The date the user applied to the job listing 
-* A link to view the job listing 
+* The status of the users application
+* The date the user applied to the job listing
+* A link to view the job listing
 * The option to withdraw their application
 
-Note, there was a design choice to not allow candidate users to delete their job application. A candidate user can withdraw their application which means they would no longer be considered for a role, but the data of their application would be retained. This is because if a company receives a large set of withdrawals, they may use the data to analyse what may have caused this. In a future iteration of the application, it would be considered as a request to be submitted to the company who could then delete the record, supporting any data-privacy requests. 
+Note, there was a design choice to not allow candidate users to delete their job application. A candidate user can withdraw their application which means they would no longer be considered for a role, but the data of their application would be retained. This is because if a company receives a large set of withdrawals, they may use the data to analyse what may have caused this. In a future iteration of the application, it would be considered as a request to be submitted to the company who could then delete the record, supporting any data-privacy requests.
 
 <img src="./static/images/candidate-dashbaord.png">
 
 ### Edit Forms
-All edit forms across the project follow a similar format, with summernote used for rich text inputs. 
+All edit forms across the project follow a similar format, with summernote used for rich text inputs.
 
 * Candidate users will be able to access the edit profile form to update their skills
 * Company users will be able to access the edit profile form and the edit / post a job form
 
 <img src="./static/images/edit-form.png">
 
-### Authentication 
+### Authentication
 Modifying allauth's base templates, there are signup, sign in and log out pages matching the style of this web application.
 
-## Testing 
-I have tested my project through a combination of manual testing of user stories, Django testing and tooling. Testing has been moved to [testing file](./testing.md) and is ordered appropriately. Any bugs recorded throughout testing are captured in the bugs section. 
+## Testing
+I have tested my project through a combination of manual testing of user stories, Django testing and tooling. Testing has been moved to [testing file](./testing.md) and is ordered appropriately. Any bugs recorded throughout testing are captured in the bugs section.
 
 ## Bugs
-The following bugs occured during the design of this site: 
+The following bugs occured during the design of this site:
 
 |ID|Bug|Fix   |
 |:-----|:-------|:-------------|
@@ -297,37 +297,37 @@ The following bugs occured during the design of this site:
 |7|Users signing up as companies are not mapping properly.|Updated Companies.save() to guard against slugify() returning an empty string, and to check for slug collisions explicitly|
 |8|Safe_html not rendering and erroring on testing|I had misnamed the file so this was causing the errors|
 
-## Deployment 
-For the version control, deployment and hosting of this site I have used GitHub and Heroku. 
+## Deployment
+For the version control, deployment and hosting of this site I have used GitHub and Heroku.
 
-### Cloning the Repository 
-To take your own version of this repository, you will have to use the following steps: 
+### Cloning the Repository
+To take your own version of this repository, you will have to use the following steps:
 
-1. Select the fork button in the top right corner of the repository and add to your own 
-2. Clone the repository using the green 'Code' button 
+1. Select the fork button in the top right corner of the repository and add to your own
+2. Clone the repository using the green 'Code' button
 3. Copy the repository URL to your clipboard
-4. Open your terminal and run: git clone [REPOSITORY URL] 
-5. Change into the project directory 
+4. Open your terminal and run: git clone [REPOSITORY URL]
+5. Change into the project directory
 
-This should mean you have a local copy of the repository to edit. 
+This should mean you have a local copy of the repository to edit.
 
 ### Deploying to Heroku
-The live version of this site is hosted using Heroku. To deploy your own version of the application, you need to use the following steps: 
+The live version of this site is hosted using Heroku. To deploy your own version of the application, you need to use the following steps:
 
 1. Set up a Heroku account and log in
 2. Select 'New' in the top right and create new app
-3. Name your app and choose the correct region before selecting create app 
+3. Name your app and choose the correct region before selecting create app
 4. Edit the config vars section within the settings tab with your unique SECRET_KEY, DATABASE_URL and any other unique variables you have includued in your project
-5. In the deploy tab, choose GitHub as your deployment method 
+5. In the deploy tab, choose GitHub as your deployment method
 6. Choose the correct repository and ensure the correct branch is selected (usually main)
 7. Use the 'deploy branch' button in the manual deployments section and let this run
 8. Use the open app button to launch the application
 
-Please note, within your allowed hosts within settings.py of your application, you should have '.herokuapp.com' or else this will not deploy. 
+Please note, within your allowed hosts within settings.py of your application, you should have '.herokuapp.com' or else this will not deploy.
 
 
-## Code from External Sources 
-The following packages have been used in this project, and are also listed in requirements.txt: 
+## Code from External Sources
+The following packages have been used in this project, and are also listed in requirements.txt:
 
 * asgiref 3.12.1
 * bleach 6.4.0
@@ -343,8 +343,8 @@ The following packages have been used in this project, and are also listed in re
 * webencodings 0.6.1
 * whitenoise 6.12.0
 
-## Credits and Disclaimer 
-I have the following credits and disclaimer: 
+## Credits and Disclaimer
+I have the following credits and disclaimer:
 
 * My favicon is from here <a href="https://www.flaticon.com/free-icons/recruitment" title="recruitment icons">Recruitment icons created by Md Tanvirul Haque - Flaticon</a>
-* Companies and users have been used with permission (for Finyx Consulting and various friends and family for users) or generated using Claude Sonnet 5. 
+* Companies and users have been used with permission (for Finyx Consulting and various friends and family for users) or generated using Claude Sonnet 5.

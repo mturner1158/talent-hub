@@ -9,13 +9,14 @@ JOB_TYPE_CHOICES = (
         ('remote', 'Remote'),
         )
 
-# Create your models here.
+
 class Job(models.Model):
     """
     Contains a job vacancy posted by a company
     """
     title = models.CharField(max_length=200)
-    company = models.ForeignKey(Companies, on_delete=models.CASCADE, related_name="jobs")
+    company = models.ForeignKey(Companies,
+                                on_delete=models.CASCADE, related_name="jobs")
     slug = models.SlugField(max_length=200, unique=True, blank=True)
     description = models.TextField()
     location = models.CharField(max_length=200)
@@ -32,7 +33,7 @@ class Job(models.Model):
     def __str__(self):
         return f"{self.title} at {self.company.company_name}"
 
-    #sets the slug in the format job-company without the user inputting data
+    # sets the slug in the format job-company without the user inputting data
     def save(self, *args, **kwargs):
         if not self.slug:
             base_slug = slugify(f"{self.title}-{self.company.company_name}")
@@ -43,4 +44,3 @@ class Job(models.Model):
                 counter += 1
             self.slug = slug
         super().save(*args, **kwargs)
-

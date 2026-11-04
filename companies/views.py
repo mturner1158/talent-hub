@@ -6,6 +6,7 @@ from jobs.models import Job
 from applications.models import Application
 from .forms import CompanyProfileForm
 
+
 # requires user to be logged in
 @login_required
 def dashboard(request):
@@ -14,22 +15,25 @@ def dashboard(request):
         raise PermissionDenied
 
     company = request.user.company_contact
-    jobs = company.jobs.all()  # confirm this related_name matches your Job.company field
+    jobs = company.jobs.all()
     active_jobs_count = jobs.filter(is_active=True).count()
-    unique_applicants_count = Application.objects.filter(job__company=company).values('candidate').distinct().count()
+    unique_applicants_count = Application.objects.filter(
+        job__company=company).values('candidate').distinct().count()
 
     return render(
-        request, 
-        'companies/dashboard.html', 
-        {'jobs': jobs,
-        'active_jobs_count': active_jobs_count,
-        'unique_applicants_count': unique_applicants_count,
-        }
+        request,
+        'companies/dashboard.html',
+        {
+            'jobs': jobs,
+            'active_jobs_count': active_jobs_count,
+            'unique_applicants_count': unique_applicants_count,
+        },
     )
+
 
 # requries user to be logged on
 @login_required
-# allows a company to edit its profile 
+# allows a company to edit its profile
 def edit_profile(request):
     # only companies can edit
     if not hasattr(request.user, 'company_contact'):
@@ -44,7 +48,7 @@ def edit_profile(request):
         return redirect('company_dashboard')
 
     return render(
-        request, 
-        'companies/edit_profile.html', 
+        request,
+        'companies/edit_profile.html',
         {'form': form}
         )
