@@ -10,10 +10,6 @@ class CompanyProfileForm(forms.ModelForm):
     class Meta:
         model = Companies
         fields = ['company_name', 'description', 'website', 'sectors']
-        widgets = {
-            'description': SummernoteWidget(),
-            'sectors': SummernoteWidget(),
-        }
 
     def clean_description(self):
         return clean_html(self.cleaned_data['description'])

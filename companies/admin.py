@@ -1,12 +1,10 @@
 from django.contrib import admin
-from django_summernote.admin import SummernoteModelAdmin
 from .models import Companies
 
 
-# enabling summernote fields on Companies model
 @admin.register(Companies)
-class CompaniesAdmin(SummernoteModelAdmin):
+class CompaniesAdmin(admin.ModelAdmin):
+    list_display = ('company_name', 'owner', 'created_on')
     search_fields = ['company_name']
     list_filter = ('created_on',)
-    summernote_fields = ('description', 'sectors',)
     prepopulated_fields = {'slug': ('company_name',)}
