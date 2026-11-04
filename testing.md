@@ -146,9 +146,17 @@ For an applicant dashboard, there are no errors:
 
 <img src="./static/images/html-testing-6.png">
 
-For an edit form, there are no errors:
+For the candidate profile edit form, there are 20 errors due to two summernote fields for skills and experience which are required for rich text in applications:
 
 <img src="./static/images/html-testing-3.png">
+
+For the job edit form, there are 10 errors due to one summernote field for the job description:
+
+<img src="./static/images/html-testing-7.png">
+
+For the company profile edit form, there were no effors:
+
+<img src="./static/images/html-testing-8.png">
 
 ## CSS Testing
 Using the [CSS Validator](https://jigsaw.w3.org/css-validator/), I have no recorded errors and no warnings.
