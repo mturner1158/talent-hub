@@ -9,6 +9,7 @@ Please use the links below to navigate to a specific section:
 * [Lighthouse Testing](#lighthouse-testing)
 * [HTML Testing](#html-testing)
 * [CSS Testing](#css-testing)
+* [Python Testing](#python-testing)
 * [Django Testing](#django-testcase)
 
 ## User Story Testing
