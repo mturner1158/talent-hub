@@ -15,7 +15,7 @@
                     {% url 'account_signup' as signup_url %}
                     <form method="post" action="{{ signup_url }}">
                         {% csrf_token %}
-                        {{ form.as_p }}
+                        {{ form.as_div }}
                         {{ redirect_field }}
                         <button class="btn login-btn" type="submit">Sign Up</button>
                     </form>

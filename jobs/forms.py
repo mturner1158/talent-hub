@@ -1,5 +1,4 @@
 from django import forms
-from django_summernote.widgets import SummernoteWidget
 from talenthub.sanitise import clean_html
 from .models import Job
 
@@ -11,9 +10,6 @@ class JobForm(forms.ModelForm):
         model = Job
         fields = ['title', 'description',
                   'location', 'salary_min', 'salary_max', 'job_type']
-        widgets = {
-            'description': SummernoteWidget(),
-        }
 
     def clean_description(self):
         return clean_html(self.cleaned_data['description'])
@@ -26,9 +22,6 @@ class JobEditForm(forms.ModelForm):
         model = Job
         fields = ['title', 'description', 'location',
                   'salary_min', 'salary_max', 'job_type', 'is_active']
-        widgets = {
-            'description': SummernoteWidget(),
-        }
 
     def clean_description(self):
         return clean_html(self.cleaned_data['description'])

@@ -1,5 +1,4 @@
 from django import forms
-from django_summernote.widgets import SummernoteWidget
 from talenthub.sanitise import clean_html
 from .models import Candidate
 
@@ -15,10 +14,6 @@ class CandidateProfileForm(forms.ModelForm):
             'skills',
             'experience',
         ]
-        widgets = {
-            'skills': SummernoteWidget(),
-            'experience': SummernoteWidget(),
-        }
 
     def clean_skills(self):
         return clean_html(self.cleaned_data['skills'])
