@@ -11,10 +11,10 @@
 
     <form method="get" class="row g-2 mb-4">
         <div class="col-md-4">
-            <input type="text" name="keyword" class="form-control" placeholder="Job title..." value="{{ keyword }}">
+            <input type="text" name="keyword" aria-label="Search by job title" class="form-control" placeholder="Job title..." value="{{ keyword }}">
         </div>
         <div class="col-md-3">
-            <input type="text" name="location" class="form-control" placeholder="Location..." value="{{ location }}">
+            <input type="text" name="location" aria-label="Search by location" class="form-control" placeholder="Location..." value="{{ location }}">
         </div>
         <div class="col-md-3">
             <select name="job_type" class="form-select" aria-label="Filter by job type">
@@ -28,7 +28,7 @@
             <button type="submit" class="btn btn-login w-100">Search</button>
         </div>
         <div class="col-md-1">
-            <a href="{% url 'home' %}" class="btn btn-login w-100">
+            <a href="{% url 'home' %}" class="btn btn-login w-100" aria-label="Clear search">
                 <i class="fa-solid fa-arrow-rotate-left"></i></a>
         </div>
     </form>
