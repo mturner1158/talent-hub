@@ -297,6 +297,17 @@ The following bugs occured during the design of this site:
 |7|Users signing up as companies are not mapping properly.|Updated Companies.save() to guard against slugify() returning an empty string, and to check for slug collisions explicitly|
 |8|Safe_html not rendering and erroring on testing|I had misnamed the file so this was causing the errors|
 
+### Known Issues
+There are still issues remaining within the project which are unresolved for various reasonns outlinde below.
+
+|ID|Issue|Rationale|
+|:---|:----|
+|1|Automated tests do not cover the candidates or companies applications|These applications were less complex and due to the timeframe of project completion this was dropped|
+|2|Summernote is still installed but no longer used|Summernote fields were dropped due to HTML validation errors but were not removed to ensure the application was still functioning|
+|3|Deleting a job removes all associated applications|This feature was intedned due to GDPR and not retaining personal information if not required|
+|4|A hired or rejected candidate can withdraw their application|If a user was to reach either of these stages, their information would already be recorded so any changes to the tool will have a trail from prior communicaitons|
+|5|A user can input a minimum salary higher than a maximum salary|Validation should catch this however this could only occur by accident rather than on purpose and legislation would not allow companies to misguide candidates|
+
 ## Deployment
 For the version control, deployment and hosting of this site I have used GitHub and Heroku.
 
